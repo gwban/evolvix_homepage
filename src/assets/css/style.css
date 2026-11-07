@@ -21,7 +21,8 @@
   --grad-ink:
     radial-gradient(120% 100% at 100% 100%, rgba(0, 113, 227, 0.45) 0%, rgba(0, 113, 227, 0) 60%),
     linear-gradient(160deg, #1D1D1F 0%, #171B24 55%, #0F213D 100%);
-  --grad-accent: linear-gradient(135deg, #0071E3 0%, #0B57B8 50%, #14264A 100%);
+  /* Muted navy → sky blue, vertical (softer take on a deep-navy-to-cyan reference) */
+  --grad-accent: linear-gradient(180deg, #0A2A68 0%, #164A8A 45%, #2A6FAE 80%, #3F8BC7 100%);
   --grad-button: linear-gradient(180deg, #1A82EE 0%, #0071E3 100%);
 
   --radius-tile: 28px;
