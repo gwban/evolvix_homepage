@@ -1,0 +1,124 @@
+<!--
+title: RMS-ON
+description: RMS-ON is a wireless predictive maintenance solution for roll-to-roll processes that collects RPM and vibration data from hundreds of guide rolls and detects early signs of anomalies.
+-->
+    <section class="page-hero" aria-labelledby="page-title">
+      <div class="container hero-inner">
+        <p class="eyebrow">Wireless predictive maintenance for roll-to-roll processes</p>
+        <h1 id="page-title" class="page-title"><span class="text-gradient">RMS-ON</span></h1>
+        <p class="hero-desc">A smart monitoring platform that wirelessly collects RPM and vibration data from hundreds of guide rolls and detects early signs of anomalies.</p>
+      </div>
+      {{waves}}
+    </section>
+
+    <section class="section" aria-labelledby="problem-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="problem-title" class="section-title">Small roll anomalies<br>become product defects.</h2>
+          <p class="section-desc">In roll-to-roll processes, guide roll degradation and rotation anomalies are hard to notice, yet they affect the quality of the entire process.</p>
+        </div>
+        <div class="bento">
+          <div class="tile span-4">
+            <span class="tile-num">01</span>
+            <h3 class="tile-title">Guide roll degradation &amp; rotation anomalies</h3>
+            <p class="tile-text">As bearings and rolls wear over long operating hours, rotation becomes unstable.</p>
+            <span class="flow-arrow tile-foot" aria-hidden="true">→</span>
+          </div>
+          <div class="tile span-4">
+            <span class="tile-num">02</span>
+            <h3 class="tile-title">Tension imbalance</h3>
+            <p class="tile-text">Slip, idle spinning and vibration make the tension applied to the film uneven.</p>
+            <span class="flow-arrow tile-foot" aria-hidden="true">→</span>
+          </div>
+          <div class="tile span-4">
+            <span class="tile-num">03</span>
+            <h3 class="tile-title">Scratches &amp; quality defects</h3>
+            <p class="tile-text">This leads to scratches, wrinkles and other defects that cost quality and productivity.</p>
+          </div>
+          <div class="tile tile--accent span-12">
+            {{wave_lines}}
+            <span class="tile-label">Our Approach</span>
+            <h3 class="tile-title tile-title--xl">Evolvix detects problems<br>before defects occur.</h3>
+            <ul class="feature-list">
+              <li>{{icon:pulse}}Early detection of rotation &amp; vibration anomalies</li>
+              <li>{{icon:clock}}Assess guide roll degradation in advance</li>
+              <li>{{icon:wrench}}Predictive maintenance at the right time</li>
+              <li>{{icon:shield}}Prevent defects and unplanned downtime</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="system-title">
+      <div class="container bento">
+        <div class="tile tile--ink span-12">
+          {{wave_lines}}
+          <span class="tile-label">System</span>
+          <h2 id="system-title" class="tile-title tile-title--xl">One wireless system,<br>from sensor node to server.</h2>
+          <div class="system-flow" role="img" aria-label="RMS-ON Edge sends data over Zigbee to RMS-ON Gateway, which forwards it over Ethernet or Wi-Fi to an on-premise server">
+            <span class="node">RMS-ON Edge</span>
+            <span class="link">Zigbee →</span>
+            <span class="node">RMS-ON Gateway</span>
+            <span class="link">Ethernet / Wi-Fi →</span>
+            <span class="node">On-premise Server</span>
+          </div>
+          <ul class="feature-list">
+            <li>{{icon:sensing}}Wireless Sensing</li>
+            <li>{{icon:network}}Zigbee Network</li>
+            <li>{{icon:gateway}}Gateway</li>
+            <li>{{icon:predict}}Predictive Maintenance</li>
+          </ul>
+        </div>
+
+        <article class="tile media-tile span-6" aria-labelledby="edge-title">
+          <img src="{{root}}assets/img/rms-on-edge.webp" alt="RMS-ON Edge" width="1200" height="900" loading="lazy">
+          <div class="tile-body">
+            <span class="tile-num">Product 01</span>
+            <h3 id="edge-title" class="tile-title">RMS-ON Edge</h3>
+            <p class="tile-text">A battery-powered wireless sensor node that integrates a non-contact optical RPM sensor and a 3-axis MEMS accelerometer. With Zigbee/XBee communication and a TDMA collection scheme, it periodically collects condition data from many guide rolls and switches to a power-saving state after each measurement for long-term operation.</p>
+            <div class="chips">
+              <span class="chip">Cable-Free<small>Modular mounting</small></span>
+              <span class="chip">Low Power<small>Up to 1 year</small></span>
+              <span class="chip">Multi-node<small>Zigbee + TDMA</small></span>
+            </div>
+            <dl class="spec">
+              <dt>Type</dt><dd>Wireless RPM &amp; Vibration Sensor Node</dd>
+              <dt>Power source</dt><dd>Lithium Battery, 17,000mAh</dd>
+              <dt>Sensor</dt><dd>Optical RPM Sensor + 3-Axis MEMS Accelerometer</dd>
+              <dt>Sampling &amp; Freq.</dt><dd>up to 1.0kHz / up to 1.0kHz</dd>
+              <dt>Measurement</dt><dd>RPM / 3-Axis Vibration</dd>
+              <dt>Connection</dt><dd>Zigbee / XBee Wireless Communication</dd>
+              <dt>Battery life</dt><dd>up to 1 year</dd>
+              <dt>Dimensions / Weight</dt><dd>100 × 65 × 55 mm / approx. 200g</dd>
+              <dt>Operating Temp.</dt><dd>-20℃ ~ 70℃</dd>
+            </dl>
+          </div>
+        </article>
+
+        <article class="tile media-tile span-6" aria-labelledby="gateway-title">
+          <img src="{{root}}assets/img/rms-on-gateway.webp" alt="RMS-ON Gateway" width="1200" height="900" loading="lazy">
+          <div class="tile-body">
+            <span class="tile-num">Product 02</span>
+            <h3 id="gateway-title" class="tile-title">RMS-ON Gateway</h3>
+            <p class="tile-text">A data relay device that collects Zigbee sensing data from multiple RMS-ON Edge end nodes and connects to an on-premise server over Ethernet or Wi-Fi. Status LEDs and an external antenna make network status easy to check on site.</p>
+            <div class="chips">
+              <span class="chip">Zigbee Collect<small>Wireless data collection</small></span>
+              <span class="chip">Server Uplink<small>Ethernet / Wi-Fi</small></span>
+              <span class="chip">Type-C Power<small>DC 5V continuous power</small></span>
+            </div>
+            <dl class="spec">
+              <dt>Type</dt><dd>Industrial Wireless Data Gateway</dd>
+              <dt>Power source</dt><dd>DC 5V via USB Type-C</dd>
+              <dt>End-node Comm.</dt><dd>Zigbee Wireless Communication</dd>
+              <dt>Server Comm.</dt><dd>Ethernet / Wi-Fi</dd>
+              <dt>Main function</dt><dd>Zigbee data collection and server uplink</dd>
+              <dt>Network role</dt><dd>Gateway / Cluster data aggregator</dd>
+              <dt>Status interface</dt><dd>Multi-color LED status indicators</dd>
+              <dt>Antenna</dt><dd>External high-gain wireless antenna</dd>
+              <dt>Dimensions</dt><dd>145 × 77 × 38 mm</dd>
+            </dl>
+          </div>
+        </article>
+      </div>
+    </section>

@@ -24,17 +24,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Check required files
-        run: |
-          for f in site/index.html site/en/index.html site/404.html site/assets/css/style.css; do
-            test -s "$f" || { echo "::error::Missing file: $f"; exit 1; }
-          done
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Renders src/ into _site/ and fails if any local link or image is broken
+      - name: Build site
+        run: python build.py
 
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: site
+          path: _site
 
       - id: deployment
         uses: actions/deploy-pages@v4

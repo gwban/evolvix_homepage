@@ -1,0 +1,43 @@
+<!--
+title: Contact
+description: For RMS-ON product inquiries and pilot collaboration proposals, contact Evolvix at evolvix@evolvix.co.kr.
+-->
+    <section class="page-hero" aria-labelledby="page-title">
+      <div class="container hero-inner">
+        <p class="eyebrow">Contact</p>
+        <h1 id="page-title" class="page-title">Let's create<br><span class="text-gradient">waves of change</span> together.</h1>
+        <p class="hero-desc">Choose a topic below to open a new email.</p>
+      </div>
+      {{waves}}
+    </section>
+
+    <section class="section" aria-label="How to reach us">
+      <div class="container bento">
+        <div class="tile span-6">
+          {{icon:box}}
+          <h2 class="tile-title">Product Inquiry</h2>
+          <p class="tile-text">Ask us about RMS-ON specifications, applicable processes and adoption.</p>
+          <div class="btn-row tile-foot">
+            <a class="btn btn--primary" href="mailto:{{email}}?subject=%5BProduct%20Inquiry%5D%20">Send a product inquiry</a>
+          </div>
+        </div>
+        <div class="tile span-6">
+          {{icon:factory}}
+          <h2 class="tile-title">Pilot Collaboration</h2>
+          <p class="tile-text">Propose a pilot to validate RMS-ON together on your production line.</p>
+          <div class="btn-row tile-foot">
+            <a class="btn btn--primary" href="mailto:{{email}}?subject=%5BPilot%20Collaboration%5D%20">Propose a pilot</a>
+          </div>
+        </div>
+        <div class="tile tile--ink span-8">
+          {{wave_lines}}
+          <span class="tile-label">Address</span>
+          <p class="tile-title">Room 1906, Building A, GIDC,<br>43 Iljik-ro, Gwangmyeong-si, Gyeonggi-do, Republic of Korea</p>
+          <a class="more tile-foot" href="https://www.google.com/maps/search/?api=1&amp;query=%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EA%B4%91%EB%AA%85%EC%8B%9C%20%EC%9D%BC%EC%A7%81%EB%A1%9C%2043%20GIDC" target="_blank" rel="noopener noreferrer">View on Google Maps ↗</a>
+        </div>
+        <div class="tile span-4">
+          <span class="tile-label">Email</span>
+          <p class="tile-title"><a href="mailto:{{email}}">{{email}}</a></p>
+        </div>
+      </div>
+    </section>
