@@ -21,7 +21,7 @@ from html import escape
 from html.parser import HTMLParser
 from pathlib import Path
 from string import Template
-from urllib.parse import unquote, urlparse
+from urllib.parse import quote, unquote, urlparse
 
 ROOT = Path(__file__).resolve().parent
 SRC = ROOT / "src"
@@ -30,8 +30,8 @@ SITE_URL = "https://evolvix.co.kr/"
 EMAIL = "evolvix@evolvix.co.kr"
 
 LANGS = ("ko", "en")                      # first entry is the default language (served at /)
-PAGE_IDS = ("index", "about", "product", "careers", "contact")
-NAV_IDS = ("about", "product", "careers", "contact")
+PAGE_IDS = ("index", "inspection", "monitoring", "product", "about", "careers", "contact")
+NAV_IDS = ("inspection", "monitoring", "product", "about", "careers", "contact")
 
 STRINGS = {
     "ko": {
@@ -45,7 +45,17 @@ STRINGS = {
         "company": "주식회사 이볼빅스",
         "ceo": "대표 반근우",
         "address": "경기도 광명시 일직로 43 GIDC A동 1906호",
-        "nav": {"about": "회사소개", "product": "제품", "careers": "채용", "contact": "문의"},
+        "nav": {"inspection": "머신비전 검사", "monitoring": "공정 모니터링", "product": "RMS-ON",
+                "about": "회사소개", "careers": "채용", "contact": "문의"},
+        # (subject, body) for mailto links; body is a fill-in template
+        "mail": {
+            "consult": ("[도입 상담] ", ""),
+            "sample": ("[샘플 테스트 의뢰] ",
+                       "검사 대상(제품/소재):\n찾으려는 결함 또는 측정 항목:\n라인 속도:\n"
+                       "샘플 수량 / 발송 예정일:\n회사명 / 담당자 / 연락처:\n"),
+            "pilot": ("[파일럿 협업] ", ""),
+            "job": ("[입사 지원] ", ""),
+        },
     },
     "en": {
         "site_name": "Evolvix",
@@ -58,7 +68,16 @@ STRINGS = {
         "company": "Evolvix Inc.",
         "ceo": "CEO Geunwoo Ban",
         "address": "Room 1906, Building A, GIDC, 43 Iljik-ro, Gwangmyeong-si, Gyeonggi-do, Republic of Korea",
-        "nav": {"about": "About", "product": "Product", "careers": "Careers", "contact": "Contact"},
+        "nav": {"inspection": "Machine Vision", "monitoring": "Monitoring", "product": "RMS-ON",
+                "about": "About", "careers": "Careers", "contact": "Contact"},
+        "mail": {
+            "consult": ("[Consultation] ", ""),
+            "sample": ("[Sample Test Request] ",
+                       "What to inspect (product/material):\nDefects or dimensions to check:\nLine speed:\n"
+                       "Number of samples / shipping date:\nCompany / name / phone:\n"),
+            "pilot": ("[Pilot Collaboration] ", ""),
+            "job": ("[Job Application] ", ""),
+        },
     },
 }
 
@@ -84,6 +103,40 @@ SNIPPETS = {
     ),
 }
 
+# Twinkling points over the dark hero: (left %, top %, size px, delay s, duration s)
+_SPARKLES = ((12, 64, 6, 0.6, 3.2), (21, 72, 4, 1.9, 2.6), (30, 58, 5, 1.1, 3.6), (38, 70, 7, 2.6, 3.0),
+             (47, 62, 4, 0.9, 2.8), (55, 74, 6, 2.1, 3.4), (63, 60, 5, 1.4, 2.7), (71, 68, 7, 0.3, 3.8),
+             (79, 57, 4, 2.9, 2.9), (86, 66, 6, 1.6, 3.3), (92, 60, 4, 0.7, 2.5), (8, 78, 5, 2.3, 3.1))
+SNIPPETS["sparkles"] = (
+    '<div class="sparkles" aria-hidden="true">'
+    + "".join(f'<i style="left:{x}%;top:{y}%;--s:{sz}px;--delay:{d}s;--dur:{t}s"></i>'
+              for x, y, sz, d, t in _SPARKLES)
+    + "</div>"
+)
+
+# Inspection illustration: a film surface with detected defects and a moving scan line
+SNIPPETS["defect_map"] = (
+    '<div class="defect-map" aria-hidden="true"><svg viewBox="0 0 480 190">'
+    '<defs><linearGradient id="dm-surface" x1="0" y1="0" x2="1" y2="1">'
+    '<stop offset="0" stop-color="#EEF3FA"/><stop offset="1" stop-color="#F8FAFD"/></linearGradient>'
+    '<linearGradient id="dm-scan" x1="0" y1="0" x2="1" y2="0">'
+    '<stop offset="0" stop-color="#0071E3" stop-opacity="0"/><stop offset=".5" stop-color="#0071E3" stop-opacity=".35"/>'
+    '<stop offset="1" stop-color="#0071E3" stop-opacity="0"/></linearGradient></defs>'
+    '<rect width="480" height="190" rx="16" fill="url(#dm-surface)"/>'
+    '<g stroke="#D9E1EC" stroke-width="1">'
+    + "".join(f'<path d="M0 {y}H480"/>' for y in range(24, 190, 24))
+    + '</g>'
+    '<circle cx="78" cy="58" r="3.5" fill="#A7B2C3"/>'                                   # white spot
+    '<path d="M168 128h52" stroke="#B5C0CF" stroke-width="2" stroke-linecap="round"/>'    # white line
+    '<path d="M300 44c14 6 26 18 34 34" stroke="#9AA6B8" stroke-width="1.6" fill="none" stroke-linecap="round"/>'  # scratch
+    '<ellipse cx="404" cy="132" rx="16" ry="10" fill="#C3CCD9" opacity=".7"/>'           # stain
+    '<g class="dm-box" fill="none" stroke="#0071E3" stroke-width="1.6">'
+    '<rect x="64" y="44" width="28" height="28" rx="4"/><rect x="158" y="116" width="72" height="24" rx="4"/>'
+    '<rect x="290" y="34" width="54" height="54" rx="4"/><rect x="380" y="114" width="48" height="36" rx="4"/></g>'
+    '<rect class="dm-scan" x="-60" y="0" width="60" height="190" fill="url(#dm-scan)"/>'
+    '</svg></div>'
+)
+
 _SVG = ('<span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" '
         'stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{}</svg></span>')
 ICONS = {
@@ -99,6 +152,12 @@ ICONS = {
     "target": '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
     "people": '<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14.5a6.5 6.5 0 0 1 3.5 5.5"/>',
     "box": '<path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5M12 13v8"/>',
+    "search": '<circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4"/>',
+    "ruler": '<path d="M3 17 17 3l4 4L7 21z"/><path d="m7 13 2 2M10 10l2 2M13 7l2 2"/>',
+    "layers": '<path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/>',
+    "battery": '<rect x="2.5" y="7" width="16" height="10" rx="2"/><path d="M21.5 11v2M6.5 10v4M10.5 10v4"/>',
+    "roll": '<ellipse cx="7" cy="12" rx="3" ry="7"/><path d="M7 5h10M7 19h10M17 5c1.7 0 3 3.1 3 7s-1.3 7-3 7"/>',
+    "flask": '<path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.7 3h10.6a2 2 0 0 0 1.7-3l-5-9V3"/><path d="M7.5 15h9"/>',
     "factory": '<path d="M4 20V10l5 3V10l5 3V6l6 4v10z"/><path d="M8 20v-3M12 20v-3M16 20v-3"/>',
 }
 
@@ -138,6 +197,14 @@ def href(from_path: str, to_path: str) -> str:
     return rel_root(from_path) + to_path
 
 
+def mailto(subject: str, body: str = "") -> str:
+    """mailto: URL (HTML-attribute escaped) with a pre-filled subject and optional body."""
+    query = "subject=" + quote(subject)
+    if body:
+        query += "&body=" + quote(body.replace("\n", "\r\n"))   # RFC 6068 line breaks
+    return escape(f"mailto:{EMAIL}?{query}")
+
+
 def load_page(file: Path, lang: str, page_id: str) -> Page:
     text = file.read_text(encoding="utf-8")
     match = META_RE.match(text)
@@ -163,7 +230,8 @@ def expand_tokens(body: str, page: Page, root: str) -> str:
             if arg not in ICONS:
                 raise BuildError(f"{page.lang}/{page.page_id}: unknown icon '{arg}'")
             return _SVG.format(ICONS[arg])
-        values = {"root": root, "base": base, "email": EMAIL, **SNIPPETS}
+        values = {"root": root, "base": base, "email": EMAIL, **SNIPPETS,
+                  **{f"mail_{k}": mailto(*v) for k, v in STRINGS[page.lang]["mail"].items()}}
         if arg is not None or name not in values:
             raise BuildError(f"{page.lang}/{page.page_id}: unknown token '{m.group(0)}'")
         return values[name]

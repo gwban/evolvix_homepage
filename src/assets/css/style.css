@@ -412,6 +412,102 @@ a.tile:hover {
 .footer-info { display: flex; flex-wrap: wrap; gap: 4px 20px; padding-top: 16px; }
 .footer-info strong { color: var(--text); font-weight: 600; }
 
+/* ---------- Dark hero (home) ---------- */
+.hero--dark {
+  display: grid;
+  align-content: center;
+  min-height: min(88vh, 860px);
+  padding: 120px 0 220px;
+  background: #03050A;
+  color: var(--white);
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url("../img/hero-bg.webp") center 62% / cover no-repeat;
+  animation: dawn 2.8s cubic-bezier(0.2, 0.6, 0.2, 1) both;
+}
+.hero--dark .eyebrow { color: rgba(255, 255, 255, 0.62); letter-spacing: 0.01em; }
+.hero--dark .hero-desc { color: rgba(255, 255, 255, 0.72); }
+
+/* Headline: each line emerges from the dark, then a soft glint passes across it */
+.hero-glow .line {
+  display: block;
+  padding-bottom: 0.06em;                      /* keep descenders inside the clipped gradient */
+  background:
+    linear-gradient(110deg, transparent 35%, rgba(255, 255, 255, 0.95) 50%, transparent 65%),
+    linear-gradient(95deg, #FFFFFF 0%, #E3EEFF 55%, #BBD8FF 100%);
+  background-size: 250% 100%, 100% 100%;
+  background-position: 200% 0, 0 0;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: emerge 1.9s cubic-bezier(0.2, 0.6, 0.2, 1) both, glint 1.6s ease-in-out both;
+  animation-delay: 0.5s, 2.2s;
+}
+.hero-glow .line + .line {
+  background:
+    linear-gradient(110deg, transparent 35%, rgba(255, 255, 255, 0.95) 50%, transparent 65%),
+    linear-gradient(95deg, #A9CFFF 0%, #6FB0FF 50%, #3D8BFF 100%);
+  background-size: 250% 100%, 100% 100%;
+  background-position: 200% 0, 0 0;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation-delay: 0.95s, 2.5s;
+}
+.hero--dark .hero-inner > :not(.hero-title) { animation-delay: 1.5s; }
+.hero--dark .hero-inner > .eyebrow { animation-delay: 0.2s; }
+
+.btn--ghost-light {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.06);
+}
+.btn--ghost-light:hover { background: rgba(255, 255, 255, 0.12); }
+
+.hero--dark .waves .wave-1 { fill: rgba(90, 163, 255, 0.14); }
+.hero--dark .waves .wave-2 { fill: rgba(255, 255, 255, 0.05); }
+.hero--dark .waves .wave-3 { fill: rgba(90, 163, 255, 0.10); }
+.hero--dark .waves .wave-4 { fill: var(--bg); }
+
+.sparkles { position: absolute; inset: 0; pointer-events: none; }
+.sparkles i {
+  position: absolute;
+  width: var(--s);
+  height: var(--s);
+  border-radius: 50%;
+  background: radial-gradient(circle, #FFFFFF 0%, rgba(170, 210, 255, 0.85) 35%, rgba(170, 210, 255, 0) 70%);
+  box-shadow: 0 0 12px 2px rgba(120, 180, 255, 0.35);
+  opacity: 0;
+  animation: twinkle var(--dur) ease-in-out var(--delay) infinite;
+}
+
+@keyframes dawn {
+  from { opacity: 0; transform: scale(1.08); filter: brightness(0.2); }
+  to   { opacity: 1; transform: none; filter: none; }
+}
+@keyframes emerge {
+  0%   { opacity: 0; filter: blur(14px) brightness(0.3); transform: translateY(14px); }
+  55%  { opacity: 1; filter: blur(0) brightness(1.35); }
+  100% { opacity: 1; filter: none; transform: none; }
+}
+@keyframes glint {
+  from { background-position: 200% 0, 0 0; }
+  to   { background-position: -100% 0, 0 0; }
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0; transform: scale(0.3); }
+  50%      { opacity: 1; transform: scale(1); }
+}
+
+/* ---------- Home: voices, chips, steps ---------- */
+.voice { font-size: clamp(20px, 2vw, 24px); line-height: 1.45; font-weight: 600; letter-spacing: -0.02em; }
+.chip-group { display: grid; gap: 10px; margin-top: 4px; }
+.chip-group strong { font-size: 15px; }
+.industry-note { margin-top: 20px; text-align: center; color: var(--muted); font-size: 15px; }
+
 /* ==========================================================================
    Motion — "Creating Waves of Change"
    ========================================================================== */
@@ -492,6 +588,8 @@ a.tile:hover {
   .site-nav ul { gap: 24px; padding: 8px var(--gutter) 10px; white-space: nowrap; }
 
   .hero { padding: 64px 0 150px; }
+  .hero--dark { min-height: 0; padding: 88px 0 160px; }
+  .hero-bg { background-image: url("../img/hero-bg-portrait.webp"); background-position: center 70%; }
   .page-hero { padding: 56px 0 120px; }
   .waves { height: 120px; }
   .page-hero .waves { height: 96px; }
@@ -509,3 +607,20 @@ a.tile:hover {
   .spec dt { padding-bottom: 0; }
   .spec dd { border-top: 0; padding-top: 2px; }
 }
+
+/* Text links on gradient tiles */
+.tile--ink .btn--link,
+.tile--accent .btn--link { color: #CFE4FF; }
+
+/* Inspection illustration */
+.defect-map { margin: 8px 0 4px; }
+.defect-map svg { width: 100%; height: auto; display: block; border-radius: 16px; }
+.dm-scan { animation: dm-scan 4.5s linear infinite; }
+.dm-box rect { opacity: 0; animation: dm-found 4.5s linear infinite; }
+.dm-box rect:nth-child(1) { animation-delay: 1s; }
+.dm-box rect:nth-child(2) { animation-delay: 1.9s; }
+.dm-box rect:nth-child(3) { animation-delay: 2.8s; }
+.dm-box rect:nth-child(4) { animation-delay: 3.5s; }
+@keyframes dm-scan { from { transform: translateX(0); } to { transform: translateX(600px); } }
+@keyframes dm-found { 0% { opacity: 0; } 4%, 70% { opacity: 1; } 85%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .dm-box rect { opacity: 1; } .dm-scan { display: none; } }

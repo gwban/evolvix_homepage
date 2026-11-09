@@ -11,8 +11,10 @@
 | 경로 | 한국어 | 영문 |
 |---|---|---|
 | 홈 | `/` | `/en/` |
+| 머신비전 검사 | `/inspection/` | `/en/inspection/` |
+| 공정 모니터링 · 예지보전 | `/monitoring/` | `/en/monitoring/` |
+| RMS-ON | `/product/` | `/en/product/` |
 | 회사소개 | `/about/` | `/en/about/` |
-| 제품 | `/product/` | `/en/product/` |
 | 채용 | `/careers/` | `/en/careers/` |
 | 문의 | `/contact/` | `/en/contact/` |
 
@@ -27,7 +29,9 @@ src/
 ├── pages/404.html
 └── assets/
     ├── css/style.css          # 색상 변수 · Bento Grid · 웨이브 전환 효과
-    └── img/                   # 로고, 제품 사진, 파비콘, OG 이미지, wave-mask.svg
+    └── img/                   # 로고, 제품 사진, 히어로 배경, 파비콘, OG 이미지, wave-mask.svg
+tools/render_hero.py           # 히어로 배경 이미지 생성 스크립트 (numpy 필요, 사이트 빌드와 무관)
+docs/copy-guide.md             # 홈페이지 문구 작성 기준
 .github/workflows/deploy.yml   # 빌드 → GitHub Pages 배포
 ```
 
@@ -35,11 +39,14 @@ src/
 
 - **문구**: `src/pages/ko/<페이지>.html`과 `src/pages/en/<페이지>.html`을 함께 수정합니다.
   파일 맨 위 주석의 `title`, `description`은 브라우저 제목과 검색 결과 설명에 쓰입니다.
-- **메뉴·회사 정보(푸터)**: `build.py` 상단의 `STRINGS`에서 언어별로 수정합니다.
+- **문구 작성 기준**: [`docs/copy-guide.md`](docs/copy-guide.md)를 참고하세요.
+- **메뉴·회사 정보(푸터)·메일 양식**: `build.py` 상단의 `STRINGS`에서 언어별로 수정합니다.
 - **페이지 본문에서 쓰는 치환 토큰**
   - `{{base}}` — 현재 언어의 홈 경로 (예: `{{base}}product/`)
   - `{{root}}` — 사이트 루트 경로 (예: `{{root}}assets/img/...`)
   - `{{email}}` — 대표메일
+  - `{{mail_consult}}`, `{{mail_sample}}`, `{{mail_pilot}}`, `{{mail_job}}` — 제목·양식이 채워진 메일 링크
+  - `{{sparkles}}`, `{{defect_map}}` — 홈 히어로 반짝임, 검사 화면 일러스트
   - `{{waves}}` — 히어로 하단 웨이브 애니메이션
   - `{{wave_lines}}` — 그라데이션 타일 안의 웨이브 라인
   - `{{icon:이름}}` — 아이콘 (`build.py`의 `ICONS` 참고)
@@ -59,6 +66,7 @@ python3 -m http.server 8000 --directory _site
 
 ## 전환 효과
 
+- **홈 히어로**: 배경이 어둠 속에서 서서히 밝아지고, 제목이 흐릿한 상태에서 선명해진 뒤 빛이 한 번 지나갑니다.
 - **페이지 전환**: 메뉴로 이동하면 새 페이지가 물결 모양 경계로 아래에서 차오릅니다
   (View Transitions API). 지원하지 않는 브라우저에서는 일반 페이지 이동으로 동작합니다.
 - **히어로 웨이브**와 **스크롤 등장 효과**는 CSS만으로 동작합니다.

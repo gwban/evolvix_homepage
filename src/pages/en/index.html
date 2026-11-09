@@ -1,75 +1,146 @@
 <!--
-title: Evolvix | RMS-ON Wireless Predictive Maintenance for Roll-to-Roll Processes
-description: Evolvix solves manufacturing problems with AI, computer vision and IoT. RMS-ON wirelessly detects rotation and vibration anomalies of guide rolls in roll-to-roll processes.
+title: Evolvix | Machine Vision Inspection and Roll-to-Roll Process Monitoring
+description: Evolvix inspects defects and dimensions with machine vision and monitors roll-to-roll equipment with wireless sensors — for optical film, battery separator and copper foil production.
 -->
-    <section class="hero" aria-labelledby="hero-title">
+    <section class="hero hero--dark" aria-labelledby="hero-title">
+      <div class="hero-bg" aria-hidden="true"></div>
+      {{sparkles}}
       <div class="container hero-inner">
         <p class="eyebrow">Creating Waves of Change With AI</p>
-        <h1 id="hero-title" class="hero-title">Detect guide roll anomalies<br><span class="text-gradient">before they become defects.</span></h1>
-        <p class="hero-desc">RMS-ON is a wireless predictive maintenance solution for roll-to-roll processes. It wirelessly collects RPM and vibration data from hundreds of guide rolls and detects early signs of failure.</p>
+        <h1 id="hero-title" class="hero-title hero-glow">
+          <span class="line">Catch defects on the line.</span>
+          <span class="line">Stop failures before they stop you.</span>
+        </h1>
+        <p class="hero-desc">We inspect products with machine vision and watch your equipment with wireless sensors.</p>
         <div class="btn-row btn-row--center">
-          <a class="btn btn--primary" href="{{base}}product/">Explore RMS-ON</a>
-          <a class="btn btn--link" href="{{base}}contact/">Contact us ›</a>
+          <a class="btn btn--primary" href="{{base}}inspection/">See solutions</a>
+          <a class="btn btn--ghost-light" href="{{mail_sample}}">Request a sample test</a>
         </div>
       </div>
       {{waves}}
     </section>
 
-    <section class="section" aria-label="Highlights">
-      <div class="container bento">
-        <a class="tile media-tile span-6" href="{{base}}product/">
-          <img src="{{root}}assets/img/rms-on-edge.webp" alt="RMS-ON Edge wireless sensor node" width="1200" height="900">
-          <div class="tile-body">
-            <span class="tile-label">Wireless sensor node</span>
-            <h2 class="tile-title">RMS-ON Edge</h2>
-            <p class="tile-text">A low-power end node that wirelessly collects the rotation and vibration condition of guide rolls</p>
-            <span class="more tile-foot">Learn more ›</span>
-          </div>
-        </a>
-        <a class="tile media-tile span-6" href="{{base}}product/">
-          <img src="{{root}}assets/img/rms-on-gateway.webp" alt="RMS-ON Gateway industrial wireless gateway" width="1200" height="900">
-          <div class="tile-body">
-            <span class="tile-label">Industrial wireless gateway</span>
-            <h2 class="tile-title">RMS-ON Gateway</h2>
-            <p class="tile-text">A data relay device that collects end-node data and forwards it to your server</p>
-            <span class="more tile-foot">Learn more ›</span>
-          </div>
-        </a>
-
-        <div class="tile tile--ink span-12">
-          {{wave_lines}}
-          <span class="tile-label">Our Approach</span>
-          <h2 class="tile-title tile-title--xl">Detect first,<br>before defects occur.</h2>
-          <ul class="feature-list">
-            <li>{{icon:pulse}}Early detection of rotation &amp; vibration anomalies</li>
-            <li>{{icon:clock}}Assess guide roll degradation in advance</li>
-            <li>{{icon:wrench}}Predictive maintenance at the right time</li>
-            <li>{{icon:shield}}Prevent defects and unplanned downtime</li>
-          </ul>
+    <section class="section" aria-labelledby="voices-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="voices-title" class="section-title">What we hear on the shop floor</h2>
         </div>
+        <div class="bento">
+          <a class="tile span-4" href="{{base}}inspection/">
+            {{icon:search}}
+            <p class="voice">“Visual inspection keeps missing small particles and scratches.”</p>
+            <span class="more tile-foot">Defect inspection ›</span>
+          </a>
+          <a class="tile span-4" href="{{base}}inspection/">
+            {{icon:ruler}}
+            <p class="voice">“Measuring takes too long, and every operator gets a different result.”</p>
+            <span class="more tile-foot">Dimensional inspection ›</span>
+          </a>
+          <a class="tile span-4" href="{{base}}monitoring/">
+            {{icon:pulse}}
+            <p class="voice">“We only find out a roll is failing after defective product comes out.”</p>
+            <span class="more tile-foot">Process monitoring ›</span>
+          </a>
+        </div>
+      </div>
+    </section>
 
-        <a class="tile span-4" href="{{base}}product/">
-          <span class="tile-label">Problem</span>
-          <h2 class="tile-title">Small roll anomalies become product defects.</h2>
-          <span class="more tile-foot">How RMS-ON solves it ›</span>
-        </a>
-        <a class="tile span-4" href="{{base}}about/">
-          <span class="tile-label">About</span>
-          <h2 class="tile-title">Turning shop-floor data into real results.</h2>
-          <span class="more tile-foot">Meet Evolvix ›</span>
-        </a>
-        <a class="tile span-4" href="{{base}}careers/">
-          <span class="tile-label">Careers</span>
-          <h2 class="tile-title">We are looking for teammates to grow with.</h2>
-          <span class="more tile-foot">See what we value ›</span>
-        </a>
+    <section class="section" aria-labelledby="solutions-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="solutions-title" class="section-title">Cameras for the product.<br>Sensors for the machine.</h2>
+        </div>
+        <div class="bento">
+          <a class="tile span-6" href="{{base}}inspection/">
+            <span class="tile-label">Machine vision inspection</span>
+            <h3 class="tile-title">Surface defects and dimensions,<br>checked on the line.</h3>
+            {{defect_map}}
+            <div class="chip-group">
+              <strong>Defect inspection</strong>
+              <div class="chips"><span class="chip">White spots</span><span class="chip">White lines</span><span class="chip">Foreign particles</span><span class="chip">Stains</span><span class="chip">Scratches</span><span class="chip">Wrinkles</span><span class="chip">Dents</span></div>
+              <strong>Dimensional inspection</strong>
+              <div class="chips"><span class="chip">External dimensions</span><span class="chip">Machined dimensions</span><span class="chip">Tolerance checks</span></div>
+            </div>
+            <span class="more tile-foot">Machine vision inspection ›</span>
+          </a>
+          <a class="tile media-tile span-6" href="{{base}}monitoring/">
+            <img src="{{root}}assets/img/rms-on-edge.webp" alt="RMS-ON wireless sensor node mounted on guide rolls" width="1200" height="900" loading="lazy">
+            <div class="tile-body">
+              <span class="tile-label">Process monitoring · Predictive maintenance</span>
+              <h3 class="tile-title">Guide roll rotation and vibration,<br>measured wirelessly.</h3>
+              <p class="tile-text">With a record for every roll, you know when it needs replacing before it fails.</p>
+              <span class="more tile-foot">Process monitoring ›</span>
+            </div>
+          </a>
+          <div class="tile tile--ink span-12">
+            {{wave_lines}}
+            <p class="tile-title tile-title--xl">Inspection finds the defects already made.<br>Monitoring finds what causes them.</p>
+            <p class="tile-text">Use both, and you manage quality at both ends of the process.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <div class="tile tile--accent span-12">
-          {{wave_lines}}
-          <span class="tile-label">Contact</span>
-          <h2 class="tile-title tile-title--xl">See RMS-ON<br>on your production line.</h2>
-          <div class="btn-row tile-foot">
-            <a class="btn btn--light" href="{{base}}contact/">Contact us</a>
+    <section class="section" aria-labelledby="industries-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="industries-title" class="section-title">Built for roll-to-roll materials</h2>
+        </div>
+        <div class="bento">
+          <div class="tile span-4">
+            {{icon:layers}}
+            <h3 class="tile-title">Optical film</h3>
+            <p class="tile-text">Particles, scratches and stains on thin, transparent film</p>
+          </div>
+          <div class="tile span-4">
+            {{icon:battery}}
+            <h3 class="tile-title">Battery separator</h3>
+            <p class="tile-text">Particles and wrinkles on the surface, plus roll condition</p>
+          </div>
+          <div class="tile span-4">
+            {{icon:roll}}
+            <h3 class="tile-title">Copper foil</h3>
+            <p class="tile-text">Dents and scratches on the surface, plus roll condition</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="process-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="process-title" class="section-title">It starts with a sample test</h2>
+          <p class="section-desc">No need to buy equipment up front. Start small and decide on the results.</p>
+        </div>
+        <div class="bento">
+          <div class="tile span-3">
+            <span class="tile-num">01</span>
+            <h3 class="tile-title">Sample test</h3>
+            <p class="tile-text">Send us samples and we check whether the defects can be detected.</p>
+          </div>
+          <div class="tile span-3">
+            <span class="tile-num">02</span>
+            <h3 class="tile-title">Site visit</h3>
+            <p class="tile-text">We look at line speed, installation space and lighting in person.</p>
+          </div>
+          <div class="tile span-3">
+            <span class="tile-num">03</span>
+            <h3 class="tile-title">Pilot</h3>
+            <p class="tile-text">We install on part of the line and review real results with you.</p>
+          </div>
+          <div class="tile span-3">
+            <span class="tile-num">04</span>
+            <h3 class="tile-title">Rollout and support</h3>
+            <p class="tile-text">After rollout, we keep tuning inspection criteria and models.</p>
+          </div>
+          <div class="tile tile--accent span-12">
+            {{wave_lines}}
+            <h3 class="tile-title tile-title--xl">Have samples to inspect?<br>Send them first.</h3>
+            <p class="tile-text">We'll check whether we can detect what you're looking for and send you the results.</p>
+            <div class="btn-row tile-foot">
+              <a class="btn btn--light" href="{{mail_sample}}">Request a sample test</a>
+              <a class="btn btn--link" href="{{base}}contact/">Other inquiries ›</a>
+            </div>
           </div>
         </div>
       </div>

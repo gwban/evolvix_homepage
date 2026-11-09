@@ -1,0 +1,73 @@
+<!--
+title: 공정 모니터링 · 예지보전
+description: 롤투롤 라인 가이드롤의 회전과 진동을 무선으로 측정해 열화 상태를 미리 파악하고, 고장과 제품 불량이 생기기 전에 정비할 수 있도록 돕습니다.
+-->
+    <section class="page-hero" aria-labelledby="page-title">
+      <div class="container hero-inner">
+        <p class="eyebrow">공정 모니터링 · 예지보전</p>
+        <h1 id="page-title" class="page-title">롤 하나의 이상이<br><span class="text-gradient">라인 전체의 불량이 됩니다.</span></h1>
+        <p class="hero-desc">가이드롤의 회전과 진동을 무선으로 기록하고, 이상이 커지기 전에 찾아냅니다.</p>
+      </div>
+      {{waves}}
+    </section>
+
+    <section class="section" aria-labelledby="problem-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="problem-title" class="section-title">불량은 이렇게 시작됩니다</h2>
+        </div>
+        <div class="bento">
+          <div class="tile span-4">
+            <span class="tile-num">01</span>
+            <h3 class="tile-title">가이드롤 마모</h3>
+            <p class="tile-text">베어링이 닳거나 롤이 오염되면 회전이 조금씩 불안정해집니다.</p>
+            <span class="flow-arrow tile-foot" aria-hidden="true">→</span>
+          </div>
+          <div class="tile span-4">
+            <span class="tile-num">02</span>
+            <h3 class="tile-title">장력 불균형</h3>
+            <p class="tile-text">슬립과 헛돎, 진동이 생기면서 필름에 걸리는 장력이 고르지 않게 됩니다.</p>
+            <span class="flow-arrow tile-foot" aria-hidden="true">→</span>
+          </div>
+          <div class="tile span-4">
+            <span class="tile-num">03</span>
+            <h3 class="tile-title">제품 불량</h3>
+            <p class="tile-text">스크래치나 주름이 생기고, 불량을 확인했을 때는 이미 많은 양이 생산된 뒤입니다.</p>
+          </div>
+          <div class="tile tile--accent span-12">
+            {{wave_lines}}
+            <span class="tile-label">이볼빅스가 하는 일</span>
+            <h3 class="tile-title tile-title--xl">불량이 나오기 전에,<br>롤에서 먼저 신호를 찾습니다.</h3>
+            <ul class="feature-list">
+              <li>{{icon:pulse}}롤마다 회전수와 진동을 상시 측정</li>
+              <li>{{icon:search}}평소와 다른 패턴을 일찍 감지</li>
+              <li>{{icon:clock}}롤별 열화 상태를 기록해 교체 시점 판단</li>
+              <li>{{icon:wrench}}라인을 세우기 전에 계획된 정비</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="rmson-title">
+      <div class="container bento">
+        <a class="tile media-tile span-6" href="{{base}}product/">
+          <img src="{{root}}assets/img/rms-on-edge.webp" alt="RMS-ON Edge 무선 센서 노드" width="1200" height="900" loading="lazy">
+          <div class="tile-body">
+            <span class="tile-label">솔루션</span>
+            <h2 id="rmson-title" class="tile-title">RMS-ON</h2>
+            <p class="tile-text">롤 축 끝에 무선 노드를 붙여 회전과 진동을 측정합니다. 케이블 공사 없이 설치합니다.</p>
+            <span class="more tile-foot">RMS-ON 자세히 보기 ›</span>
+          </div>
+        </a>
+        <div class="tile tile--ink span-6">
+          {{wave_lines}}
+          <span class="tile-label">파일럿 협업</span>
+          <h2 class="tile-title tile-title--xl">우리 라인에서도<br>될지 궁금하다면.</h2>
+          <p class="tile-text">라인 일부에 먼저 설치해 보고, 데이터를 함께 확인하는 것부터 시작할 수 있습니다.</p>
+          <div class="btn-row tile-foot">
+            <a class="btn btn--light" href="{{mail_pilot}}">파일럿 협업 문의</a>
+          </div>
+        </div>
+      </div>
+    </section>

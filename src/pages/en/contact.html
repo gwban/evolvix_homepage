@@ -1,32 +1,40 @@
 <!--
 title: Contact
-description: For RMS-ON product inquiries and pilot collaboration proposals, contact Evolvix at evolvix@evolvix.co.kr.
+description: For consultations, sample test requests and pilot collaboration, email Evolvix at evolvix@evolvix.co.kr.
 -->
     <section class="page-hero" aria-labelledby="page-title">
       <div class="container hero-inner">
         <p class="eyebrow">Contact</p>
-        <h1 id="page-title" class="page-title">Let's create<br><span class="text-gradient">waves of change</span> together.</h1>
-        <p class="hero-desc">Choose a topic below to open a new email.</p>
+        <h1 id="page-title" class="page-title">Tell us about<br><span class="text-gradient">your process.</span></h1>
+        <p class="hero-desc">Pick a topic to open an email. We'll review it and get back to you.</p>
       </div>
       {{waves}}
     </section>
 
     <section class="section" aria-label="How to reach us">
       <div class="container bento">
-        <div class="tile span-6">
+        <div class="tile span-4">
           {{icon:box}}
-          <h2 class="tile-title">Product Inquiry</h2>
-          <p class="tile-text">Ask us about RMS-ON specifications, applicable processes and adoption.</p>
+          <h2 class="tile-title">Consultation</h2>
+          <p class="tile-text">Considering machine vision inspection or RMS-ON? Tell us about your process and what you're trying to solve.</p>
           <div class="btn-row tile-foot">
-            <a class="btn btn--primary" href="mailto:{{email}}?subject=%5BProduct%20Inquiry%5D%20">Send a product inquiry</a>
+            <a class="btn btn--primary" href="{{mail_consult}}">Email us</a>
           </div>
         </div>
-        <div class="tile span-6">
-          {{icon:factory}}
-          <h2 class="tile-title">Pilot Collaboration</h2>
-          <p class="tile-text">Propose a pilot to validate RMS-ON together on your production line.</p>
+        <div class="tile span-4">
+          {{icon:flask}}
+          <h2 class="tile-title">Sample test request</h2>
+          <p class="tile-text">Have samples to inspect? We'll check first whether the defects can be detected. The email includes a short form.</p>
           <div class="btn-row tile-foot">
-            <a class="btn btn--primary" href="mailto:{{email}}?subject=%5BPilot%20Collaboration%5D%20">Propose a pilot</a>
+            <a class="btn btn--primary" href="{{mail_sample}}">Request a sample test</a>
+          </div>
+        </div>
+        <div class="tile span-4">
+          {{icon:factory}}
+          <h2 class="tile-title">Pilot collaboration</h2>
+          <p class="tile-text">Propose a pilot: we install on part of your line and review the results together.</p>
+          <div class="btn-row tile-foot">
+            <a class="btn btn--primary" href="{{mail_pilot}}">Ask about a pilot</a>
           </div>
         </div>
         <div class="tile tile--ink span-8">

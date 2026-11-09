@@ -1,0 +1,90 @@
+<!--
+title: 머신비전 검사
+description: 이볼빅스 머신비전 검사. 백점, 백선, 이물, 얼룩, 스크래치, 주름, 찍힘 등 결함 검사와 외관 치수, 가공 치수, 공차 검사를 제품과 라인 조건에 맞춰 구성합니다.
+-->
+    <section class="page-hero" aria-labelledby="page-title">
+      <div class="container hero-inner">
+        <p class="eyebrow">머신비전 검사</p>
+        <h1 id="page-title" class="page-title">눈으로 놓치던 결함을<br><span class="text-gradient">카메라로 찾습니다.</span></h1>
+        <p class="hero-desc">조명과 카메라, 검사 알고리즘을 제품과 라인 조건에 맞춰 구성합니다.</p>
+      </div>
+      {{waves}}
+    </section>
+
+    <section class="section" aria-label="검사 항목">
+      <div class="container bento">
+        <div class="tile span-7">
+          {{icon:search}}
+          <span class="tile-label">결함 검사</span>
+          <h2 class="tile-title">표면에 생긴 작은 결함을 찾고,<br>종류별로 나눕니다.</h2>
+          <div class="chips">
+            <span class="chip">백점</span><span class="chip">백선</span><span class="chip">이물</span><span class="chip">얼룩</span>
+            <span class="chip">스크래치</span><span class="chip">주름</span><span class="chip">찍힘</span>
+          </div>
+          <p class="tile-text">결함마다 위치와 크기를 기록해 두기 때문에, 어느 공정에서 생겼는지 추적할 때도 쓸 수 있습니다.</p>
+        </div>
+        <div class="tile span-5">
+          {{icon:ruler}}
+          <span class="tile-label">치수 검사</span>
+          <h2 class="tile-title">사람이 재던 치수를<br>카메라로 측정합니다.</h2>
+          <div class="chips">
+            <span class="chip">외관 치수</span><span class="chip">가공 치수</span><span class="chip">공차 검사</span>
+          </div>
+          <p class="tile-text">같은 기준으로 매번 측정하고, 공차를 벗어난 제품을 바로 걸러냅니다.</p>
+        </div>
+
+        <div class="tile tile--ink span-12">
+          {{wave_lines}}
+          <span class="tile-label">검사 시스템 구성</span>
+          <h2 class="tile-title tile-title--xl">검사 대상에 맞춰<br>처음부터 구성합니다.</h2>
+          <div class="system-flow" role="img" aria-label="조명 설계, 카메라와 렌즈 선정, 검사 알고리즘, 판정과 데이터 기록 순서로 구성">
+            <span class="node">조명 설계</span>
+            <span class="link">→</span>
+            <span class="node">카메라 · 렌즈 선정</span>
+            <span class="link">→</span>
+            <span class="node">검사 알고리즘</span>
+            <span class="link">→</span>
+            <span class="node">판정 · 데이터 기록</span>
+          </div>
+          <p class="tile-text">같은 스크래치라도 소재와 라인 속도에 따라 보이는 방식이 다릅니다. 그래서 장비를 정해 놓고 끼워 맞추지 않습니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="process-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="process-title" class="section-title">샘플 테스트부터 시작합니다</h2>
+        </div>
+        <div class="bento">
+          <div class="tile span-3">
+            <span class="tile-num">01</span>
+            <h3 class="tile-title">샘플 테스트</h3>
+            <p class="tile-text">샘플을 보내 주시면 결함이 검출되는지 먼저 확인합니다.</p>
+          </div>
+          <div class="tile span-3">
+            <span class="tile-num">02</span>
+            <h3 class="tile-title">현장 확인</h3>
+            <p class="tile-text">라인 속도와 설치 공간, 조명 조건을 직접 봅니다.</p>
+          </div>
+          <div class="tile span-3">
+            <span class="tile-num">03</span>
+            <h3 class="tile-title">파일럿</h3>
+            <p class="tile-text">라인 일부에 설치해 실제 결과를 함께 확인합니다.</p>
+          </div>
+          <div class="tile span-3">
+            <span class="tile-num">04</span>
+            <h3 class="tile-title">적용과 운영</h3>
+            <p class="tile-text">적용한 뒤에도 검사 기준과 모델을 계속 맞춰 갑니다.</p>
+          </div>
+          <div class="tile tile--accent span-12">
+            {{wave_lines}}
+            <h3 class="tile-title tile-title--xl">검사할 샘플이 있다면,<br>먼저 보내 주세요.</h3>
+            <p class="tile-text">메일 양식에 검사 대상과 찾으려는 결함을 적어 주시면 됩니다.</p>
+            <div class="btn-row tile-foot">
+              <a class="btn btn--light" href="{{mail_sample}}">샘플 테스트 의뢰</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
