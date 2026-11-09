@@ -691,17 +691,16 @@ a.tile:hover {
 
 /* Machine vision layers */
 .mv-full { aspect-ratio: 16 / 10; background: #1B1D20; }
-.mv-zoomer { position: absolute; inset: 0; transform-origin: 60.5% 49%; }
+.mv-zoomer { position: absolute; inset: 0; transform-origin: 64.6% 48%; }
 .mv-zoomer img { height: 100%; object-fit: cover; }
 .roi { position: absolute; border: calc(1.6px / var(--k, 1)) solid #4DA3FF; border-radius: calc(3px / var(--k, 1)); }
-.roi--scratch { left: 57%; top: 34%; width: 7%; height: 30%; }
-.roi--spot { left: 28.6%; top: 67.6%; width: 2.8%; height: 4.8%; }
+.roi--scratch { left: 52%; top: 25%; width: 25.5%; height: 46%; }
 .mv-detail { aspect-ratio: 1.08; background: #1B1D20; width: min(100%, 560px); }
 .mv-detail-view { position: absolute; inset: 0; overflow: hidden; }
-.mv-detail-view img { position: absolute; width: 411.5%; height: 277.8%; max-width: none; left: -199%; top: -86.1%; object-fit: fill; }
-.det { position: absolute; left: 35.6%; top: 8.3%; width: 28.8%; height: 83.3%; border: 1.6px solid #4DA3FF; border-radius: 4px; }
+.mv-detail-view img { position: absolute; width: 500%; height: 337.8%; max-width: none; left: -275%; top: -110.5%; object-fit: fill; }
+.det { position: absolute; left: 25%; top: 17.9%; width: 50%; height: 64.2%; border: 1.6px solid #4DA3FF; border-radius: 4px; }
 .det-tag {
-  position: absolute; left: calc(64.4% + 10px); top: 8.3%;
+  position: absolute; left: 25%; top: calc(17.9% - 34px);
   padding: 4px 10px; border-radius: 4px; background: #0071E3; color: var(--white); font-size: 13px; font-weight: 600;
 }
 .mv-link { display: none; }
@@ -814,9 +813,9 @@ a.tile:hover {
 
   /* Machine vision: whole → region of interest → original + detection */
   .is-enhanced .mv-zoomer { transition: transform 1.1s cubic-bezier(0.3, 0.6, 0.2, 1); }
-  .is-enhanced .mv-zoomer img { transform: scale(calc(1 + var(--p, 0) * 0.04)); transform-origin: 60% 50%; }
+  .is-enhanced .mv-zoomer img { transform: scale(calc(1 + var(--p, 0) * 0.04)); transform-origin: 64.6% 48%; }
   .is-enhanced .roi { opacity: 0; transition: opacity 0.5s ease; }
-  .is-enhanced[data-active="1"] .mv-zoomer { transform: scale(2.6); --k: 2.6; }
+  .is-enhanced[data-active="1"] .mv-zoomer { transform: scale(1.6); --k: 1.6; }
   .is-enhanced[data-active="1"] .mv-zoomer img { transform: none; }
   .is-enhanced[data-active="1"] .roi--scratch { opacity: 1; transition-delay: 0.9s; }
   .is-enhanced[data-active="2"] .mv-full { transform-origin: 0 0; transform: translate(0, 21%) scale(0.58); }

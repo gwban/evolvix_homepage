@@ -31,9 +31,9 @@ src/
     ├── css/style.css          # 색상 변수 · 레이아웃 · 홈 스크롤 장면 · 웨이브 전환 효과
     ├── js/home.js             # 홈 전용: 솔루션 sticky 스크롤 연출 · 등장 효과 (없어도 내용은 모두 보임)
     └── img/                   # 로고, 제품 사진, 히어로 배경, 파비콘, OG 이미지
-        └── scenes/            # 홈 장면 이미지 (현재는 생성 예시 이미지 → 실제 사진으로 교체 예정)
+        └── scenes/            # 홈 장면 이미지
 tools/render_hero.py           # 히어로 배경 이미지 생성 스크립트 (numpy 필요, 사이트 빌드와 무관)
-tools/render_scenes.py         # 홈 장면 예시 이미지 생성 스크립트 (numpy 필요, 사이트 빌드와 무관)
+tools/render_scenes.py         # RMS-ON 설치 장면 생성 스크립트 (numpy 필요, 사이트 빌드와 무관)
 docs/copy-guide.md             # 홈페이지 문구 작성 기준
 .github/workflows/deploy.yml   # 빌드 → GitHub Pages 배포
 ```
@@ -67,22 +67,22 @@ python3 -m http.server 8000 --directory _site
 
 브라우저에서 http://localhost:8000 을 엽니다. 빌드 중 깨진 링크나 이미지가 발견되면 오류와 함께 중단됩니다.
 
-## 홈 장면 이미지 교체 (실제 사진으로)
+## 홈 장면 이미지
 
-홈의 장면 이미지는 지금 **생성 예시 이미지**이며 화면에 그렇게 표시됩니다. 실제 사진이 준비되면 같은 파일 이름으로
-여러 크기를 만들어 `src/assets/img/scenes/`에 덮어쓰고, `src/pages/ko|en/index.html`에서 해당 이미지의
-`생성 예시 이미지` 표시(`gen-badge`)를 지우면 됩니다.
-
-| 파일 | 쓰는 곳 | 비율 | 크기(가로 px) | 바꿀 실제 사진 |
+| 파일 (`src/assets/img/scenes/`) | 쓰는 곳 | 비율 | 크기(가로 px) | 상태 |
 |---|---|---|---|---|
-| `line-*.webp` | 현장 섹션 (화면 전체 폭) | 2 : 1 | 1000 / 1600 / 2000 | 롤투롤 라인, 가이드롤과 필름 근접 장면 |
-| `surface-*.webp` | 머신비전 장면 (확대 포함) | 16 : 10 | 1200 / 2000 / 3200 | 실제 검사 영상 원본 (확대해도 선명한 고해상도) |
-| `install-*.webp` | RMS-ON 장면 | 16 : 10 | 900 / 1400 / 1800 | 하우징에 RMS-ON Edge를 설치한 현장 사진 |
-| `testbed-*.webp` | 개발 · 검증 섹션 | 4 : 3 | 800 / 1400 | 광학 테스트베드, 카메라 · 조명 구성 |
+| `line-*.webp` | 현장 섹션 (화면 전체 폭) | 2 : 1 | 1000 / 1774 | 보유 이미지 ("예시 이미지" 표시) |
+| `film-*.webp` | 머신비전 장면 (1.6배 확대, 확대 화면 포함) | 16 : 10 | 1000 / 1585 | 보유 이미지 ("예시 이미지" 표시) |
+| `testbed-*.webp` | 개발 · 검증 섹션 | 4 : 3 | 800 / 1448 | 보유 이미지 ("예시 이미지" 표시) |
+| `install-*.webp` | RMS-ON 장면 | 16 : 10 | 900 / 1400 / 1800 | **생성 이미지** (`tools/render_scenes.py`) → 실제 설치 사진으로 교체 권장 |
 
-- 사진에 표시된 위치 점(검사 위치, 측정 위치 등)은 HTML의 `style="--x:..%;--y:..%"` 값으로 옮길 수 있습니다.
-- 머신비전 장면의 검출 테두리 위치는 CSS의 `.roi--scratch`, `.roi--spot`, `.mv-detail-view img`, `.det` 값입니다.
-- RMS-ON 대시보드는 이미지가 아니라 HTML/SVG로 만든 **데모 화면**입니다. 실제 화면이 나오면 캡처 이미지로 바꾸거나 값을 고치면 됩니다.
+교체할 때는 같은 비율로 여러 크기를 만들어 덮어쓰고, `src/pages/ko|en/index.html`의 `srcset`·`width`·`height` 값과
+이미지 표시 문구(`gen-badge`)를 맞춰 주세요.
+
+- 사진 위 위치 점(검사 위치, 측정 위치 등)은 HTML의 `style="--x:..%;--y:..%"` 값입니다.
+- 머신비전 장면의 위치값은 CSS에 있습니다: 확대 기준점 `.mv-zoomer`(transform-origin), 전체 스크래치 범위 `.roi--scratch`,
+  확대 화면 `.mv-detail-view img`, 검출 테두리 `.det`, 연결선은 HTML의 `.mv-link` 좌표입니다.
+- RMS-ON 대시보드는 이미지가 아니라 HTML/SVG로 만든 **데모 화면**입니다.
 
 ## 전환 효과
 

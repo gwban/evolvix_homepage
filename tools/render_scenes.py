@@ -1,7 +1,7 @@
-"""Render the illustrative scene images used on the home page.
+"""Render the RMS-ON installation scene used on the home page.
 
-These are *generated example images* (simple numpy ray tracer + procedural textures).
-They stand in until real photos are available and are labelled as such on the site.
+This is a *generated example image* (simple numpy ray tracer + procedural textures).
+It stands in until a real installation photo is available and is labelled as such on the site.
 Not part of the site build; requires numpy and Pillow.
 
 Usage: python3 tools/render_scenes.py src/assets/img/scenes
@@ -357,38 +357,6 @@ def save(img: Image.Image, out: Path, name: str, widths):
 
 
 # ----------------------------------------------------------------------------- scenes
-def scene_line(W, H):
-    """Roll-to-roll line: film running over steel guide rolls, machine frame on the left."""
-    rollA = Cylinder((1.6, 1.0, 0.0), 0.55, 3.4, 0, "steel")
-    rollB = Cylinder((1.6, 1.62, -3.4), 0.40, 3.4, 0, "steel")
-    rollC = Cylinder((1.6, 1.15, -6.4), 0.34, 3.4, 0, "steel")
-    prims = [
-        Floor(0.0, "floor"), rollA, rollB, rollC,
-        Cylinder((-1.95, 1.0, 0.0), 0.13, 0.18, 0, "steel"),                # shafts into the frame
-        Cylinder((-1.95, 1.62, -3.4), 0.11, 0.18, 0, "steel"),
-        Box((-2.45, 0.0, -8.0), (-2.2, 2.75, 1.4), "frame"),                # side frame plate
-        Box((-2.2, 0.66, -0.36), (-1.9, 1.34, 0.36), "iron"),               # bearing housings
-        Box((-2.2, 1.36, -3.66), (-1.9, 1.88, -3.14), "iron"),
-        Box((-2.2, 0.92, -6.62), (-1.9, 1.38, -6.18), "iron"),
-        Box((-2.2, 0.0, -1.2), (5.4, 0.32, 1.2), "rail"),                   # base rail
-        Box((5.6, 0.0, -9.5), (8.0, 2.4, -7.0), "frame"),                   # cabinet far right
-    ]
-    for (y, z) in ((0.76, 0.24), (1.24, 0.24), (0.76, -0.24), (1.24, -0.24)):
-        prims.append(Cylinder((-1.88, y, z), 0.038, 0.02, 0, "steel"))      # housing bolts
-    films = [
-        Film((-1.75, 1.49, -6.4), (6.9, 0, 0), (0, 0.53, 3.0)),            # C → B
-        Film((-1.75, 2.02, -3.4), (6.9, 0, 0), (0, -0.47, 3.4)),           # B → A (top of A)
-        Film((-1.75, 1.0, 0.56), (6.9, 0, 0), (0, -1.4, 0.5)),             # leaving A downwards
-    ]
-    eye, target = (2.4, 2.05, 2.7), (-0.8, 1.2, -1.8)
-    bg = bokeh_background(W, H, (0.58, 0.61, 0.65), (0.46, 0.48, 0.51), seed=5)
-    img, depth, cam = render(W, H, eye, target, 52, prims, films, bg=bg, light_dir=(-0.3, 1.0, 0.45),
-                             film_wrap=(rollA, (-1.75, 5.2), (-90, 2)), ao_dist=0.5)
-    pil = finish(img, depth, focus=(3.6, 7.0), max_blur=W * 0.005, vignette=0.22, exposure=0.92)
-    notes = {"inspect": project(cam, (0.9, 1.80, -1.7)), "measure": project(cam, (-1.9, 1.0, 0.0))}
-    return pil, notes
-
-
 def scene_install(W, H):
     """Guide roll end: bearing housing on the frame, RMS-ON Edge mounted on the housing."""
     roll = Cylinder((2.5, 1.0, 0.0), 0.42, 2.5, 0, "steel")
@@ -416,66 +384,13 @@ def scene_install(W, H):
     return pil, notes
 
 
-def scene_testbed(W, H):
-    """Optical test bench seen from low: ring light glowing above a backlit sample stage."""
-    prims = [
-        Floor(-0.9, "dark"),
-        Box((-1.3, -0.9, -1.0), (1.3, 0.0, 1.0), "anod"),                   # table
-        Box((-0.9, 0.0, -0.7), (0.9, 0.06, 0.7), "alu"),                    # breadboard
-        Box((-0.30, 0.06, -0.30), (0.30, 0.16, 0.30), "anod", emissive_top=True),   # backlight stage
-        Box((-0.05, 0.06, -0.62), (0.05, 1.75, -0.52), "alu"),              # post
-        Box((-0.05, 1.42, -0.62), (0.05, 1.52, 0.05), "alu"),               # arm
-        Box((-0.11, 1.12, -0.11), (0.11, 1.42, 0.11), "anod"),              # camera body
-        Cylinder((0.0, 0.98, 0.0), 0.075, 0.14, 1, "anod"),                 # lens
-        Cylinder((0.0, 0.70, 0.0), 0.22, 0.03, 1, "anod", emissive_ring=(0.12, 0.205)),   # ring light
-        Box((-0.03, 0.72, -0.62), (0.03, 0.77, -0.2), "alu"),               # ring light holder
-    ]
-    eye, target = (1.35, 0.42, 1.65), (0.0, 0.66, 0.0)
-    bg = bokeh_background(W, H, (0.10, 0.11, 0.13), (0.05, 0.055, 0.06), lights=40, seed=21)
-    img, depth, cam = render(W, H, eye, target, 44, prims, bg=bg, light_dir=(-0.6, 1.0, 0.5),
-                             strips=(0.5, 1.1), emissive=(0.92, 0.97, 1.0), ao_dist=0.25)
-    pil = finish(img, depth, focus=(2.1, 3.0), max_blur=W * 0.006, vignette=0.3, exposure=1.15)
-    return pil, {}
-
-
-def scene_surface(W, H):
-    """Dark-field macro of a brushed metallic film surface with a scratch and a white spot."""
-    yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
-    u, v = xx / W, yy / H
-    streak = np.interp(v * 3000, np.arange(6000), rng.normal(0, 1, 6000)) * 0.035 + \
-        np.interp(v * 400, np.arange(1000), rng.normal(0, 1, 1000)) * 0.05
-    curve = 0.025 + 0.30 * np.exp(-((v - 0.36) / 0.16) ** 2) + 0.07 * np.exp(-((v - 0.80) / 0.10) ** 2)
-    base = curve * (1 + 1.6 * streak) * (0.75 + 0.25 * u)
-    noise = Image.fromarray((rng.normal(128, 30, (H // 2, W // 2))).clip(0, 255).astype(np.uint8)).resize((W, H))
-    base += (np.asarray(noise, np.float32) / 255 - 0.5) * 0.04
-    img = np.stack([base * 0.92, base * 0.96, base * 1.04], -1)
-    # scratch: thin bright slightly curved line
-    sx0, sy0, sx1, sy1 = 0.585, 0.36, 0.615, 0.62
-    tt = np.clip(((u - sx0) * (sx1 - sx0) + (v - sy0) * (sy1 - sy0)) / ((sx1 - sx0) ** 2 + (sy1 - sy0) ** 2), 0, 1)
-    px, py = sx0 + tt * (sx1 - sx0) + 0.004 * np.sin(tt * 3.1), sy0 + tt * (sy1 - sy0)
-    dist = np.hypot((u - px) * W, (v - py) * H)
-    breaks = np.clip(0.75 + 0.45 * np.sin(tt * 7 + 1.0), 0.3, 1)
-    scratch = np.exp(-(dist / 1.25) ** 2) * (0.5 + 0.5 * np.sin(tt * 40) ** 2) * np.clip(np.sin(tt * np.pi), 0, 1) ** 0.6 * breaks
-    img += scratch[..., None] * np.array([0.55, 0.6, 0.68])
-    # white spot
-    d2 = np.hypot((u - 0.30) * W, (v - 0.70) * H)
-    img += (np.exp(-(d2 / 4.0) ** 2) * 0.35)[..., None]
-    pil = Image.fromarray((np.clip(img, 0, 1) ** (1 / 2.2) * 255).astype(np.uint8))
-    notes = {"scratch": [sx0 * 100 - 1.5, sy0 * 100 - 2, (sx1 - sx0) * 100 + 4, (sy1 - sy0) * 100 + 4],
-             "spot": [28.6, 67.6, 2.8, 4.8]}
-    return pil, notes
-
-
 def main(out: Path):
     out.mkdir(parents=True, exist_ok=True)
     notes = {}
     for name, fn, size, widths in (
-        ("line", scene_line, (2000, 1000), (1000, 1600, 2000)),
         ("install", scene_install, (1800, 1125), (900, 1400, 1800)),
-        ("testbed", scene_testbed, (1400, 1050), (800, 1400)),
-        ("surface", scene_surface, (3200, 2000), (1200, 2000, 3200)),
     ):
-        ss = 1.0 if name == "surface" else 1.4
+        ss = 1.4                                             # supersample, then downscale
         img, n = fn(round(size[0] * ss), round(size[1] * ss))
         save(img, out, name, widths)
         notes[name] = n
