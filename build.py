@@ -32,6 +32,7 @@ EMAIL = "evolvix@evolvix.co.kr"
 LANGS = ("ko", "en")                      # first entry is the default language (served at /)
 PAGE_IDS = ("index", "inspection", "monitoring", "product", "about", "careers", "contact")
 NAV_IDS = ("inspection", "monitoring", "product", "about", "careers", "contact")
+PAGE_SCRIPTS = {"index": ("home.js",)}    # page id → scripts in src/assets/js (deferred)
 
 STRINGS = {
     "ko": {
@@ -112,29 +113,6 @@ SNIPPETS["sparkles"] = (
     + "".join(f'<i style="left:{x}%;top:{y}%;--s:{sz}px;--delay:{d}s;--dur:{t}s"></i>'
               for x, y, sz, d, t in _SPARKLES)
     + "</div>"
-)
-
-# Inspection illustration: a film surface with detected defects and a moving scan line
-SNIPPETS["defect_map"] = (
-    '<div class="defect-map" aria-hidden="true"><svg viewBox="0 0 480 190">'
-    '<defs><linearGradient id="dm-surface" x1="0" y1="0" x2="1" y2="1">'
-    '<stop offset="0" stop-color="#EEF3FA"/><stop offset="1" stop-color="#F8FAFD"/></linearGradient>'
-    '<linearGradient id="dm-scan" x1="0" y1="0" x2="1" y2="0">'
-    '<stop offset="0" stop-color="#0071E3" stop-opacity="0"/><stop offset=".5" stop-color="#0071E3" stop-opacity=".35"/>'
-    '<stop offset="1" stop-color="#0071E3" stop-opacity="0"/></linearGradient></defs>'
-    '<rect width="480" height="190" rx="16" fill="url(#dm-surface)"/>'
-    '<g stroke="#D9E1EC" stroke-width="1">'
-    + "".join(f'<path d="M0 {y}H480"/>' for y in range(24, 190, 24))
-    + '</g>'
-    '<circle cx="78" cy="58" r="3.5" fill="#A7B2C3"/>'                                   # white spot
-    '<path d="M168 128h52" stroke="#B5C0CF" stroke-width="2" stroke-linecap="round"/>'    # white line
-    '<path d="M300 44c14 6 26 18 34 34" stroke="#9AA6B8" stroke-width="1.6" fill="none" stroke-linecap="round"/>'  # scratch
-    '<ellipse cx="404" cy="132" rx="16" ry="10" fill="#C3CCD9" opacity=".7"/>'           # stain
-    '<g class="dm-box" fill="none" stroke="#0071E3" stroke-width="1.6">'
-    '<rect x="64" y="44" width="28" height="28" rx="4"/><rect x="158" y="116" width="72" height="24" rx="4"/>'
-    '<rect x="290" y="34" width="54" height="54" rx="4"/><rect x="380" y="114" width="48" height="36" rx="4"/></g>'
-    '<rect class="dm-scan" x="-60" y="0" width="60" height="190" fill="url(#dm-scan)"/>'
-    '</svg></div>'
 )
 
 _SVG = ('<span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" '
@@ -281,6 +259,8 @@ def render(layout: Template, page: Page, *, absolute: bool = False) -> str:
         nav=nav,
         lang_switch=lang_switch,
         content=expand_tokens(page.body, page, root),
+        scripts="\n".join(f'  <script src="{root}assets/js/{name}" defer></script>'
+                           for name in PAGE_SCRIPTS.get(page.page_id, ())),
         email=EMAIL,
         year=date.today().year,
         **{k: s[k] for k in ("skip", "home_label", "nav_label", "footer_nav_label",

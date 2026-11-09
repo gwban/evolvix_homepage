@@ -20,128 +20,188 @@ description: 이볼빅스는 머신비전으로 제품의 결함과 치수를 �
       {{waves}}
     </section>
 
-    <section class="section" aria-labelledby="voices-title">
-      <div class="container">
-        <div class="section-head">
-          <h2 id="voices-title" class="section-title">현장에서 자주 듣는 이야기</h2>
+    <div class="home-scenes">
+    <section class="intro" aria-labelledby="intro-title">
+      <div class="wrap intro-head">
+        <div data-reveal>
+          <p class="kicker">현장</p>
+          <h2 id="intro-title" class="display">현장을 이해하고,<br>데이터로 판단합니다.</h2>
         </div>
-        <div class="bento">
-          <a class="tile span-4" href="{{base}}inspection/">
-            {{icon:search}}
-            <p class="voice">“육안 검사로는 작은 이물이나 스크래치를 자꾸 놓칩니다.”</p>
-            <span class="more tile-foot">결함 검사 ›</span>
-          </a>
-          <a class="tile span-4" href="{{base}}inspection/">
-            {{icon:ruler}}
-            <p class="voice">“치수를 재는 데 시간이 오래 걸리고, 사람마다 결과가 다릅니다.”</p>
-            <span class="more tile-foot">치수 검사 ›</span>
-          </a>
-          <a class="tile span-4" href="{{base}}monitoring/">
-            {{icon:pulse}}
-            <p class="voice">“롤에 문제가 생긴 걸 제품 불량이 나온 뒤에야 압니다.”</p>
-            <span class="more tile-foot">공정 모니터링 ›</span>
-          </a>
-        </div>
+        <p class="intro-side" data-reveal style="--d:0.1s"><strong>머신비전 검사 · 설비 모니터링</strong><br>롤투롤 소재 생산 라인을 위한 솔루션</p>
       </div>
+      <figure class="intro-figure" data-reveal style="--d:0.3s">
+        <img src="{{root}}assets/img/scenes/line-1600.webp"
+             srcset="{{root}}assets/img/scenes/line-1000.webp 1000w, {{root}}assets/img/scenes/line-1600.webp 1600w, {{root}}assets/img/scenes/line-2000.webp 2000w"
+             sizes="100vw" width="2000" height="1000" loading="lazy"
+             alt="광학필름이 스틸 가이드롤 위를 지나가는 롤투롤 공정 장면">
+        <span class="pin" style="--x:65.3%;--y:40.1%"><i></i><b>검사 위치 · 필름 표면</b></span>
+        <span class="pin pin--left" style="--x:29.3%;--y:56.9%"><i></i><b>측정 위치 · 베어링 하우징</b></span>
+        <figcaption class="gen-badge">생성 예시 이미지</figcaption>
+      </figure>
+      <ul class="wrap industries" aria-label="적용 소재">
+        <li><strong>광학필름</strong><span>얇고 투명한 필름 표면의 이물·스크래치·얼룩</span></li>
+        <li><strong>이차전지 분리막</strong><span>분리막 표면의 이물과 주름, 롤 상태 관리</span></li>
+        <li><strong>동박</strong><span>동박 표면의 찍힘과 스크래치, 롤 상태 관리</span></li>
+      </ul>
     </section>
 
-    <section class="section" aria-labelledby="solutions-title">
-      <div class="container">
-        <div class="section-head">
-          <h2 id="solutions-title" class="section-title">제품은 카메라로 보고,<br>설비는 센서로 봅니다.</h2>
-        </div>
-        <div class="bento">
-          <a class="tile span-6" href="{{base}}inspection/">
-            <span class="tile-label">머신비전 검사</span>
-            <h3 class="tile-title">표면 결함과 치수를<br>라인 위에서 검사합니다.</h3>
-            {{defect_map}}
-            <div class="chip-group">
-              <strong>결함 검사</strong>
-              <div class="chips"><span class="chip">백점</span><span class="chip">백선</span><span class="chip">이물</span><span class="chip">얼룩</span><span class="chip">스크래치</span><span class="chip">주름</span><span class="chip">찍힘</span></div>
-              <strong>치수 검사</strong>
-              <div class="chips"><span class="chip">외관 치수</span><span class="chip">가공 치수</span><span class="chip">공차 검사</span></div>
+    <section class="story story--mv" data-story style="--steps:3" aria-labelledby="mv-title">
+      <div class="wrap story-sticky">
+        <div class="story-stage">
+          <figure class="layer mv-full" data-order="0">
+            <div class="mv-zoomer">
+              <img src="{{root}}assets/img/scenes/surface-2000.webp"
+                   srcset="{{root}}assets/img/scenes/surface-1200.webp 1200w, {{root}}assets/img/scenes/surface-2000.webp 2000w, {{root}}assets/img/scenes/surface-3200.webp 3200w"
+                   sizes="(min-width: 1024px) 150vw, 100vw" width="3200" height="2000" loading="lazy"
+                   alt="암시야 조명으로 촬영한 금속 필름 표면. 가는 스크래치와 작은 백점이 보입니다.">
+              <span class="roi roi--scratch"></span>
+              <span class="roi roi--spot"></span>
             </div>
-            <span class="more tile-foot">머신비전 검사 자세히 ›</span>
-          </a>
-          <a class="tile media-tile span-6" href="{{base}}monitoring/">
-            <img src="{{root}}assets/img/rms-on-edge.webp" alt="가이드롤에 부착하는 RMS-ON 무선 센서 노드" width="1200" height="900" loading="lazy">
-            <div class="tile-body">
-              <span class="tile-label">공정 모니터링 · 예지보전</span>
-              <h3 class="tile-title">가이드롤의 회전과 진동을<br>무선으로 측정합니다.</h3>
-              <p class="tile-text">롤마다 상태를 기록해 두면, 교체할 때를 미리 알 수 있습니다.</p>
-              <span class="more tile-foot">공정 모니터링 자세히 ›</span>
+            <figcaption class="gen-badge">생성 예시 이미지</figcaption>
+          </figure>
+          <figure class="layer mv-detail" data-order="3">
+            <div class="mv-detail-view">
+              <img src="{{root}}assets/img/scenes/surface-3200.webp" width="3200" height="2000" loading="lazy" alt="스크래치 부분을 확대한 화면">
+              <span class="det"></span>
+              <span class="det-tag">스크래치</span>
             </div>
-          </a>
-          <div class="tile tile--ink span-12">
-            {{wave_lines}}
-            <p class="tile-title tile-title--xl">검사는 이미 생긴 불량을 찾고,<br>모니터링은 불량이 생기는 원인을 찾습니다.</p>
-            <p class="tile-text">둘을 함께 쓰면 품질 문제를 공정의 앞과 뒤에서 모두 관리할 수 있습니다.</p>
-          </div>
+            <figcaption class="gen-badge">확대 영역 · 생성 예시 이미지</figcaption>
+          </figure>
+          <svg class="layer mv-link" viewBox="0 0 160 100" preserveAspectRatio="none" aria-hidden="true">
+            <line x1="59.4" y1="40.7" x2="97.6" y2="21"/><line x1="59.4" y1="58.1" x2="97.6" y2="79"/>
+          </svg>
         </div>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="industries-title">
-      <div class="container">
-        <div class="section-head">
-          <h2 id="industries-title" class="section-title">롤투롤 소재 현장에 적용합니다</h2>
-        </div>
-        <div class="bento">
-          <div class="tile span-4">
-            {{icon:layers}}
-            <h3 class="tile-title">광학필름</h3>
-            <p class="tile-text">얇고 투명한 필름 표면의 이물, 스크래치, 얼룩</p>
-          </div>
-          <div class="tile span-4">
-            {{icon:battery}}
-            <h3 class="tile-title">이차전지 분리막</h3>
-            <p class="tile-text">분리막 표면의 이물과 주름, 롤 상태 관리</p>
-          </div>
-          <div class="tile span-4">
-            {{icon:roll}}
-            <h3 class="tile-title">동박</h3>
-            <p class="tile-text">동박 표면의 찍힘과 스크래치, 롤 상태 관리</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="process-title">
-      <div class="container">
-        <div class="section-head">
-          <h2 id="process-title" class="section-title">샘플 테스트부터 시작합니다</h2>
-          <p class="section-desc">처음부터 장비를 들이지 않아도 됩니다. 작게 확인하고, 결과를 보고 결정하세요.</p>
-        </div>
-        <div class="bento">
-          <div class="tile span-3">
-            <span class="tile-num">01</span>
-            <h3 class="tile-title">샘플 테스트</h3>
-            <p class="tile-text">샘플을 보내 주시면 결함이 검출되는지 먼저 확인합니다.</p>
-          </div>
-          <div class="tile span-3">
-            <span class="tile-num">02</span>
-            <h3 class="tile-title">현장 확인</h3>
-            <p class="tile-text">라인 속도와 설치 공간, 조명 조건을 직접 봅니다.</p>
-          </div>
-          <div class="tile span-3">
-            <span class="tile-num">03</span>
-            <h3 class="tile-title">파일럿</h3>
-            <p class="tile-text">라인 일부에 설치해 실제 결과를 함께 확인합니다.</p>
-          </div>
-          <div class="tile span-3">
-            <span class="tile-num">04</span>
-            <h3 class="tile-title">적용과 운영</h3>
-            <p class="tile-text">적용한 뒤에도 검사 기준과 모델을 계속 맞춰 갑니다.</p>
-          </div>
-          <div class="tile tile--accent span-12">
-            {{wave_lines}}
-            <h3 class="tile-title tile-title--xl">검사할 샘플이 있다면,<br>먼저 보내 주세요.</h3>
-            <p class="tile-text">검출이 되는지 확인하고 결과를 알려 드립니다.</p>
-            <div class="btn-row tile-foot">
-              <a class="btn btn--light" href="{{mail_sample}}">샘플 테스트 의뢰</a>
-              <a class="btn btn--link" href="{{base}}contact/">다른 문의 ›</a>
+        <div class="story-copy">
+          <div class="story-meta"><span class="story-label">머신비전 검사</span><span class="story-count" aria-hidden="true"></span><span class="story-bar" aria-hidden="true"><i></i></span></div>
+          <div class="story-steps">
+            <div class="story-step" data-order="1">
+              <h3 id="mv-title">보이지 않던 차이를,<br>측정 가능한 정보로.</h3>
+              <p>광학필름이나 동박처럼 표면이 고른 소재에서는 작은 흠집 하나도 불량이 됩니다. 조명과 카메라를 소재에 맞춰 구성해, 눈으로는 잘 보이지 않는 차이를 영상으로 잡아냅니다.</p>
+            </div>
+            <div class="story-step" data-order="2">
+              <h3>미세한 결함의<br>위치와 형태를 확인합니다.</h3>
+              <p>찾아낸 결함마다 위치와 크기, 모양을 기록하고 스크래치·백점·이물처럼 종류별로 나눕니다.</p>
+            </div>
+            <div class="story-step" data-order="4">
+              <h3>원본과 검출 결과를<br>함께 봅니다.</h3>
+              <p>전체 영상에서 어디에 결함이 있었는지, 확대하면 어떤 모양인지 한 화면에서 확인합니다. 기록은 어느 공정에서 결함이 생겼는지 추적하는 데 씁니다.</p>
+              <a class="arrow-link" href="{{base}}inspection/">검사 기술 살펴보기</a>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <section class="story story--rb story--right" data-story style="--steps:3" aria-labelledby="rb-title">
+      <div class="wrap story-sticky">
+        <div class="story-stage">
+          <figure class="layer rb-photo" data-order="0">
+            <div class="rb-img">
+              <img src="{{root}}assets/img/scenes/install-1400.webp"
+                   srcset="{{root}}assets/img/scenes/install-900.webp 900w, {{root}}assets/img/scenes/install-1400.webp 1400w, {{root}}assets/img/scenes/install-1800.webp 1800w"
+                   sizes="(min-width: 1024px) 62vw, 100vw" width="1800" height="1125" loading="lazy"
+                   alt="가이드롤 축 끝의 베어링 하우징에 RMS-ON Edge 무선 센서 노드를 고정한 모습">
+              <span class="rb-pin rb-pin--up" style="--x:38.2%;--y:36.4%"><i></i><b>회전 측정<small>축 끝단 · 비접촉 광학식</small></b></span>
+              <span class="rb-pin" style="--x:30.9%;--y:66.4%"><i></i><b>진동 측정<small>하우징 · 3축 MEMS 가속도</small></b></span>
+            </div>
+            <figcaption class="gen-badge">설치 예시 · 생성 이미지</figcaption>
+          </figure>
+          <figure class="layer rb-dash" data-order="3">
+            <div class="dash">
+              <div class="dash-head">
+                <p class="dash-title">RMS-ON<span>롤 모니터링</span></p>
+                <span class="demo-tag">데모 화면</span>
+              </div>
+              <div class="dash-chart">
+                <div class="dash-legend"><span><i></i>진동 (측정)</span><span class="base"><i></i>평소 범위</span><span class="evt"><i></i>변화 구간</span></div>
+                <svg viewBox="0 0 520 150" role="img" aria-label="롤 R2의 진동이 시간 후반부에 평소 범위보다 커진 데모 그래프">
+                  <line class="chart-grid" x1="0" y1="30" x2="520" y2="30"/><line class="chart-grid" x1="0" y1="75" x2="520" y2="75"/><line class="chart-grid" x1="0" y1="120" x2="520" y2="120"/>
+                  <rect class="chart-event" x="352" y="8" width="132" height="124" rx="4"/>
+                  <path class="chart-base" d="M0 92 C40 88 80 96 120 91 S200 89 240 93 S320 90 360 92 S440 89 520 92"/>
+                  <path class="chart-measured" d="M0 94 L13 86 L26 97 L39 88 L52 95 L65 84 L78 96 L91 89 L104 97 L117 85 L130 94 L143 88 L156 98 L169 86 L182 93 L195 87 L208 96 L221 84 L234 95 L247 89 L260 97 L273 86 L286 94 L299 88 L312 96 L325 83 L338 92 L351 80 L364 70 L377 86 L390 58 L403 77 L416 50 L429 72 L442 46 L455 69 L468 52 L481 74 L494 78 L507 88 L520 90"/>
+                  <text class="chart-label" x="0" y="146">시간 →</text>
+                </svg>
+              </div>
+              <table>
+                <thead><tr><th scope="col">롤</th><th scope="col">상태</th><th scope="col">최근 이벤트</th></tr></thead>
+                <tbody>
+                  <tr><td>R1</td><td><span class="dot"></span>정상</td><td>—</td></tr>
+                  <tr class="warn"><td>R2</td><td><span class="dot dot--warn"></span>점검 필요</td><td>진동 변화 감지</td></tr>
+                  <tr><td>R3</td><td><span class="dot"></span>정상</td><td>—</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </figure>
+        </div>
+        <div class="story-copy">
+          <div class="story-meta"><span class="story-label">RMS-ON · 공정 모니터링</span><span class="story-count" aria-hidden="true"></span><span class="story-bar" aria-hidden="true"><i></i></span></div>
+          <div class="story-steps">
+            <div class="story-step" data-order="1">
+              <h3 id="rb-title">가이드롤의 상태를,<br>한눈에.</h3>
+              <p>RMS-ON Edge는 롤을 받치는 고정부에 모듈처럼 붙입니다. 배터리로 동작하는 무선 노드라 케이블 공사가 필요 없습니다.</p>
+            </div>
+            <div class="story-step" data-order="2">
+              <h3>회전과 진동에서<br>설비의 변화를 읽습니다.</h3>
+              <p>비접촉 광학식 센서로 회전수를, 3축 MEMS 가속도 센서로 진동을 측정합니다. 측정값은 Zigbee로 게이트웨이에 모입니다.</p>
+            </div>
+            <div class="story-step" data-order="4">
+              <h3>측정값이<br>점검 판단으로 이어집니다.</h3>
+              <p>롤마다 평소와 다른 패턴이 나타나면 바로 표시합니다. 어느 롤을 먼저 점검해야 하는지 화면에서 확인할 수 있습니다.</p>
+              <a class="arrow-link" href="{{base}}product/">RMS-ON 자세히 보기</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap engineering" aria-labelledby="eng-title">
+      <div class="eng-head">
+        <div data-reveal>
+          <p class="kicker">개발 · 검증</p>
+          <h2 id="eng-title" class="display">기술을 설명하는<br>가장 확실한 방법.</h2>
+        </div>
+        <p class="lede" data-reveal style="--d:0.1s">직접 만들어 보고, 직접 측정합니다. 산업용 카메라와 조명, 센서와 MCU를 연동해 실제 라인 조건에서 동작하는지 확인합니다.</p>
+      </div>
+      <div class="eng-grid">
+        <figure class="eng-a" data-reveal>
+          <div class="eng-photo">
+            <img src="{{root}}assets/img/scenes/testbed-1400.webp"
+                 srcset="{{root}}assets/img/scenes/testbed-800.webp 800w, {{root}}assets/img/scenes/testbed-1400.webp 1400w"
+                 sizes="(min-width: 760px) 55vw, 100vw" width="1400" height="1050" loading="lazy"
+                 alt="카메라와 링 조명, 백라이트 시료대로 구성한 광학 시험 장치">
+            <span class="gen-badge">생성 예시 이미지</span>
+          </div>
+          <figcaption><strong>광학 구성 시험</strong>조명 방식과 카메라 배치를 바꿔 가며 결함이 가장 잘 보이는 조건을 찾습니다.</figcaption>
+        </figure>
+        <figure class="eng-b" data-reveal style="--d:0.12s">
+          <div class="eng-photo">
+            <img src="{{root}}assets/img/rms-on-edge.webp" width="1200" height="900" loading="lazy" alt="RMS-ON Edge 무선 센서 노드 시제품">
+          </div>
+          <figcaption><strong>RMS-ON Edge</strong>광학식 RPM 센서와 3축 가속도 센서를 넣은 무선 노드</figcaption>
+        </figure>
+        <figure class="eng-c" data-reveal style="--d:0.24s">
+          <div class="eng-photo">
+            <img src="{{root}}assets/img/rms-on-gateway.webp" width="1200" height="900" loading="lazy" alt="RMS-ON Gateway 무선 데이터 게이트웨이 시제품">
+          </div>
+          <figcaption><strong>RMS-ON Gateway</strong>여러 노드의 데이터를 모아 서버로 보내는 게이트웨이</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="wrap closing" aria-labelledby="cta-title">
+      <p class="process-title" data-reveal>도입은 샘플 테스트부터 시작합니다</p>
+      <ol class="process" data-reveal style="--d:0.1s">
+        <li><b>01</b><strong>샘플 테스트</strong><span>샘플을 보내 주시면 결함이 검출되는지 먼저 확인합니다.</span></li>
+        <li><b>02</b><strong>현장 확인</strong><span>라인 속도와 설치 공간, 조명 조건을 직접 봅니다.</span></li>
+        <li><b>03</b><strong>파일럿</strong><span>라인 일부에 설치해 실제 결과를 함께 확인합니다.</span></li>
+        <li><b>04</b><strong>적용과 운영</strong><span>적용한 뒤에도 검사 기준과 모델을 계속 맞춰 갑니다.</span></li>
+      </ol>
+      <div class="cta">
+        <h2 id="cta-title">검사 대상과 공정 조건을 알려주세요.</h2>
+        <div class="cta-actions">
+          <a class="arrow-link" href="{{mail_sample}}">샘플 테스트 의뢰</a>
+          <a class="btn btn--solid" href="{{base}}contact/">기술 상담 문의</a>
+        </div>
+      </div>
+    </section>
+    </div>

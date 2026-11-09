@@ -20,128 +20,188 @@ description: Evolvix inspects defects and dimensions with machine vision and mon
       {{waves}}
     </section>
 
-    <section class="section" aria-labelledby="voices-title">
-      <div class="container">
-        <div class="section-head">
-          <h2 id="voices-title" class="section-title">What we hear on the shop floor</h2>
+    <div class="home-scenes">
+    <section class="intro" aria-labelledby="intro-title">
+      <div class="wrap intro-head">
+        <div data-reveal>
+          <p class="kicker">On site</p>
+          <h2 id="intro-title" class="display">Understand the line.<br>Decide with data.</h2>
         </div>
-        <div class="bento">
-          <a class="tile span-4" href="{{base}}inspection/">
-            {{icon:search}}
-            <p class="voice">“Visual inspection keeps missing small particles and scratches.”</p>
-            <span class="more tile-foot">Defect inspection ›</span>
-          </a>
-          <a class="tile span-4" href="{{base}}inspection/">
-            {{icon:ruler}}
-            <p class="voice">“Measuring takes too long, and every operator gets a different result.”</p>
-            <span class="more tile-foot">Dimensional inspection ›</span>
-          </a>
-          <a class="tile span-4" href="{{base}}monitoring/">
-            {{icon:pulse}}
-            <p class="voice">“We only find out a roll is failing after defective product comes out.”</p>
-            <span class="more tile-foot">Process monitoring ›</span>
-          </a>
-        </div>
+        <p class="intro-side" data-reveal style="--d:0.1s"><strong>Machine vision · Equipment monitoring</strong><br>For roll-to-roll material production</p>
       </div>
+      <figure class="intro-figure" data-reveal style="--d:0.3s">
+        <img src="{{root}}assets/img/scenes/line-1600.webp"
+             srcset="{{root}}assets/img/scenes/line-1000.webp 1000w, {{root}}assets/img/scenes/line-1600.webp 1600w, {{root}}assets/img/scenes/line-2000.webp 2000w"
+             sizes="100vw" width="2000" height="1000" loading="lazy"
+             alt="Optical film running over steel guide rolls on a roll-to-roll line">
+        <span class="pin" style="--x:65.3%;--y:40.1%"><i></i><b>Inspection point · film surface</b></span>
+        <span class="pin pin--left" style="--x:29.3%;--y:56.9%"><i></i><b>Measuring point · bearing housing</b></span>
+        <figcaption class="gen-badge">Generated example image</figcaption>
+      </figure>
+      <ul class="wrap industries" aria-label="Materials">
+        <li><strong>Optical film</strong><span>Particles, scratches and stains on thin, transparent film</span></li>
+        <li><strong>Battery separator</strong><span>Particles and wrinkles on the surface, plus roll condition</span></li>
+        <li><strong>Copper foil</strong><span>Dents and scratches on the surface, plus roll condition</span></li>
+      </ul>
     </section>
 
-    <section class="section" aria-labelledby="solutions-title">
-      <div class="container">
-        <div class="section-head">
-          <h2 id="solutions-title" class="section-title">Cameras for the product.<br>Sensors for the machine.</h2>
-        </div>
-        <div class="bento">
-          <a class="tile span-6" href="{{base}}inspection/">
-            <span class="tile-label">Machine vision inspection</span>
-            <h3 class="tile-title">Surface defects and dimensions,<br>checked on the line.</h3>
-            {{defect_map}}
-            <div class="chip-group">
-              <strong>Defect inspection</strong>
-              <div class="chips"><span class="chip">White spots</span><span class="chip">White lines</span><span class="chip">Foreign particles</span><span class="chip">Stains</span><span class="chip">Scratches</span><span class="chip">Wrinkles</span><span class="chip">Dents</span></div>
-              <strong>Dimensional inspection</strong>
-              <div class="chips"><span class="chip">External dimensions</span><span class="chip">Machined dimensions</span><span class="chip">Tolerance checks</span></div>
+    <section class="story story--mv" data-story style="--steps:3" aria-labelledby="mv-title">
+      <div class="wrap story-sticky">
+        <div class="story-stage">
+          <figure class="layer mv-full" data-order="0">
+            <div class="mv-zoomer">
+              <img src="{{root}}assets/img/scenes/surface-2000.webp"
+                   srcset="{{root}}assets/img/scenes/surface-1200.webp 1200w, {{root}}assets/img/scenes/surface-2000.webp 2000w, {{root}}assets/img/scenes/surface-3200.webp 3200w"
+                   sizes="(min-width: 1024px) 150vw, 100vw" width="3200" height="2000" loading="lazy"
+                   alt="Metallic film surface under dark-field lighting, showing a thin scratch and a small white spot">
+              <span class="roi roi--scratch"></span>
+              <span class="roi roi--spot"></span>
             </div>
-            <span class="more tile-foot">Machine vision inspection ›</span>
-          </a>
-          <a class="tile media-tile span-6" href="{{base}}monitoring/">
-            <img src="{{root}}assets/img/rms-on-edge.webp" alt="RMS-ON wireless sensor node mounted on guide rolls" width="1200" height="900" loading="lazy">
-            <div class="tile-body">
-              <span class="tile-label">Process monitoring · Predictive maintenance</span>
-              <h3 class="tile-title">Guide roll rotation and vibration,<br>measured wirelessly.</h3>
-              <p class="tile-text">With a record for every roll, you know when it needs replacing before it fails.</p>
-              <span class="more tile-foot">Process monitoring ›</span>
+            <figcaption class="gen-badge">Generated example image</figcaption>
+          </figure>
+          <figure class="layer mv-detail" data-order="3">
+            <div class="mv-detail-view">
+              <img src="{{root}}assets/img/scenes/surface-3200.webp" width="3200" height="2000" loading="lazy" alt="Close-up of the scratch">
+              <span class="det"></span>
+              <span class="det-tag">Scratch</span>
             </div>
-          </a>
-          <div class="tile tile--ink span-12">
-            {{wave_lines}}
-            <p class="tile-title tile-title--xl">Inspection finds the defects already made.<br>Monitoring finds what causes them.</p>
-            <p class="tile-text">Use both, and you manage quality at both ends of the process.</p>
-          </div>
+            <figcaption class="gen-badge">Close-up · Generated example image</figcaption>
+          </figure>
+          <svg class="layer mv-link" viewBox="0 0 160 100" preserveAspectRatio="none" aria-hidden="true">
+            <line x1="59.4" y1="40.7" x2="97.6" y2="21"/><line x1="59.4" y1="58.1" x2="97.6" y2="79"/>
+          </svg>
         </div>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="industries-title">
-      <div class="container">
-        <div class="section-head">
-          <h2 id="industries-title" class="section-title">Built for roll-to-roll materials</h2>
-        </div>
-        <div class="bento">
-          <div class="tile span-4">
-            {{icon:layers}}
-            <h3 class="tile-title">Optical film</h3>
-            <p class="tile-text">Particles, scratches and stains on thin, transparent film</p>
-          </div>
-          <div class="tile span-4">
-            {{icon:battery}}
-            <h3 class="tile-title">Battery separator</h3>
-            <p class="tile-text">Particles and wrinkles on the surface, plus roll condition</p>
-          </div>
-          <div class="tile span-4">
-            {{icon:roll}}
-            <h3 class="tile-title">Copper foil</h3>
-            <p class="tile-text">Dents and scratches on the surface, plus roll condition</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="process-title">
-      <div class="container">
-        <div class="section-head">
-          <h2 id="process-title" class="section-title">It starts with a sample test</h2>
-          <p class="section-desc">No need to buy equipment up front. Start small and decide on the results.</p>
-        </div>
-        <div class="bento">
-          <div class="tile span-3">
-            <span class="tile-num">01</span>
-            <h3 class="tile-title">Sample test</h3>
-            <p class="tile-text">Send us samples and we check whether the defects can be detected.</p>
-          </div>
-          <div class="tile span-3">
-            <span class="tile-num">02</span>
-            <h3 class="tile-title">Site visit</h3>
-            <p class="tile-text">We look at line speed, installation space and lighting in person.</p>
-          </div>
-          <div class="tile span-3">
-            <span class="tile-num">03</span>
-            <h3 class="tile-title">Pilot</h3>
-            <p class="tile-text">We install on part of the line and review real results with you.</p>
-          </div>
-          <div class="tile span-3">
-            <span class="tile-num">04</span>
-            <h3 class="tile-title">Rollout and support</h3>
-            <p class="tile-text">After rollout, we keep tuning inspection criteria and models.</p>
-          </div>
-          <div class="tile tile--accent span-12">
-            {{wave_lines}}
-            <h3 class="tile-title tile-title--xl">Have samples to inspect?<br>Send them first.</h3>
-            <p class="tile-text">We'll check whether we can detect what you're looking for and send you the results.</p>
-            <div class="btn-row tile-foot">
-              <a class="btn btn--light" href="{{mail_sample}}">Request a sample test</a>
-              <a class="btn btn--link" href="{{base}}contact/">Other inquiries ›</a>
+        <div class="story-copy">
+          <div class="story-meta"><span class="story-label">Machine vision inspection</span><span class="story-count" aria-hidden="true"></span><span class="story-bar" aria-hidden="true"><i></i></span></div>
+          <div class="story-steps">
+            <div class="story-step" data-order="1">
+              <h3 id="mv-title">Differences you can't see,<br>turned into data you can measure.</h3>
+              <p>On uniform surfaces like optical film or copper foil, a single small mark is a defect. We set up lighting and cameras for the material to capture differences the eye barely sees.</p>
+            </div>
+            <div class="story-step" data-order="2">
+              <h3>Locate tiny defects<br>and see their shape.</h3>
+              <p>Every defect found is logged with its position, size and shape, and sorted by type: scratch, white spot, particle and so on.</p>
+            </div>
+            <div class="story-step" data-order="4">
+              <h3>See the original<br>and the detection together.</h3>
+              <p>Where the defect sits in the full frame and what it looks like up close, on one screen. The records help trace which process step caused it.</p>
+              <a class="arrow-link" href="{{base}}inspection/">Explore inspection</a>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <section class="story story--rb story--right" data-story style="--steps:3" aria-labelledby="rb-title">
+      <div class="wrap story-sticky">
+        <div class="story-stage">
+          <figure class="layer rb-photo" data-order="0">
+            <div class="rb-img">
+              <img src="{{root}}assets/img/scenes/install-1400.webp"
+                   srcset="{{root}}assets/img/scenes/install-900.webp 900w, {{root}}assets/img/scenes/install-1400.webp 1400w, {{root}}assets/img/scenes/install-1800.webp 1800w"
+                   sizes="(min-width: 1024px) 62vw, 100vw" width="1800" height="1125" loading="lazy"
+                   alt="RMS-ON Edge wireless sensor node fixed to the bearing housing at the end of a guide roll">
+              <span class="rb-pin rb-pin--up" style="--x:38.2%;--y:36.4%"><i></i><b>Rotation<small>Shaft end · non-contact optical</small></b></span>
+              <span class="rb-pin" style="--x:30.9%;--y:66.4%"><i></i><b>Vibration<small>Housing · 3-axis MEMS accelerometer</small></b></span>
+            </div>
+            <figcaption class="gen-badge">Installation example · Generated image</figcaption>
+          </figure>
+          <figure class="layer rb-dash" data-order="3">
+            <div class="dash">
+              <div class="dash-head">
+                <p class="dash-title">RMS-ON<span>Roll monitoring</span></p>
+                <span class="demo-tag">Demo screen</span>
+              </div>
+              <div class="dash-chart">
+                <div class="dash-legend"><span><i></i>Vibration (measured)</span><span class="base"><i></i>Normal range</span><span class="evt"><i></i>Change detected</span></div>
+                <svg viewBox="0 0 520 150" role="img" aria-label="Demo chart: roll R2 vibration rises above its normal range late in the period">
+                  <line class="chart-grid" x1="0" y1="30" x2="520" y2="30"/><line class="chart-grid" x1="0" y1="75" x2="520" y2="75"/><line class="chart-grid" x1="0" y1="120" x2="520" y2="120"/>
+                  <rect class="chart-event" x="352" y="8" width="132" height="124" rx="4"/>
+                  <path class="chart-base" d="M0 92 C40 88 80 96 120 91 S200 89 240 93 S320 90 360 92 S440 89 520 92"/>
+                  <path class="chart-measured" d="M0 94 L13 86 L26 97 L39 88 L52 95 L65 84 L78 96 L91 89 L104 97 L117 85 L130 94 L143 88 L156 98 L169 86 L182 93 L195 87 L208 96 L221 84 L234 95 L247 89 L260 97 L273 86 L286 94 L299 88 L312 96 L325 83 L338 92 L351 80 L364 70 L377 86 L390 58 L403 77 L416 50 L429 72 L442 46 L455 69 L468 52 L481 74 L494 78 L507 88 L520 90"/>
+                  <text class="chart-label" x="0" y="146">Time →</text>
+                </svg>
+              </div>
+              <table>
+                <thead><tr><th scope="col">Roll</th><th scope="col">Status</th><th scope="col">Latest event</th></tr></thead>
+                <tbody>
+                  <tr><td>R1</td><td><span class="dot"></span>Normal</td><td>—</td></tr>
+                  <tr class="warn"><td>R2</td><td><span class="dot dot--warn"></span>Check</td><td>Vibration change</td></tr>
+                  <tr><td>R3</td><td><span class="dot"></span>Normal</td><td>—</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </figure>
+        </div>
+        <div class="story-copy">
+          <div class="story-meta"><span class="story-label">RMS-ON · Process monitoring</span><span class="story-count" aria-hidden="true"></span><span class="story-bar" aria-hidden="true"><i></i></span></div>
+          <div class="story-steps">
+            <div class="story-step" data-order="1">
+              <h3 id="rb-title">Every guide roll,<br>at a glance.</h3>
+              <p>RMS-ON Edge mounts like a module on the fixed support that holds the roll. It is a battery-powered wireless node, so no cabling work is needed.</p>
+            </div>
+            <div class="story-step" data-order="2">
+              <h3>Rotation and vibration<br>show how equipment changes.</h3>
+              <p>A non-contact optical sensor measures RPM and a 3-axis MEMS accelerometer measures vibration. Readings are collected at the gateway over Zigbee.</p>
+            </div>
+            <div class="story-step" data-order="4">
+              <h3>From readings<br>to maintenance decisions.</h3>
+              <p>When a roll starts behaving differently from normal, it is flagged right away, so you can see which roll to check first.</p>
+              <a class="arrow-link" href="{{base}}product/">More about RMS-ON</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap engineering" aria-labelledby="eng-title">
+      <div class="eng-head">
+        <div data-reveal>
+          <p class="kicker">Development · Validation</p>
+          <h2 id="eng-title" class="display">The surest way<br>to explain technology.</h2>
+        </div>
+        <p class="lede" data-reveal style="--d:0.1s">We build it and measure it ourselves. Industrial cameras, lighting, sensors and MCUs are wired together and checked under real line conditions.</p>
+      </div>
+      <div class="eng-grid">
+        <figure class="eng-a" data-reveal>
+          <div class="eng-photo">
+            <img src="{{root}}assets/img/scenes/testbed-1400.webp"
+                 srcset="{{root}}assets/img/scenes/testbed-800.webp 800w, {{root}}assets/img/scenes/testbed-1400.webp 1400w"
+                 sizes="(min-width: 760px) 55vw, 100vw" width="1400" height="1050" loading="lazy"
+                 alt="Optical test bench with a camera, ring light and backlit sample stage">
+            <span class="gen-badge">Generated example image</span>
+          </div>
+          <figcaption><strong>Optical setup tests</strong>We vary lighting and camera placement to find where defects show most clearly.</figcaption>
+        </figure>
+        <figure class="eng-b" data-reveal style="--d:0.12s">
+          <div class="eng-photo">
+            <img src="{{root}}assets/img/rms-on-edge.webp" width="1200" height="900" loading="lazy" alt="RMS-ON Edge wireless sensor node prototype">
+          </div>
+          <figcaption><strong>RMS-ON Edge</strong>Wireless node with an optical RPM sensor and a 3-axis accelerometer</figcaption>
+        </figure>
+        <figure class="eng-c" data-reveal style="--d:0.24s">
+          <div class="eng-photo">
+            <img src="{{root}}assets/img/rms-on-gateway.webp" width="1200" height="900" loading="lazy" alt="RMS-ON Gateway wireless data gateway prototype">
+          </div>
+          <figcaption><strong>RMS-ON Gateway</strong>Collects data from many nodes and sends it to the server</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="wrap closing" aria-labelledby="cta-title">
+      <p class="process-title" data-reveal>It starts with a sample test</p>
+      <ol class="process" data-reveal style="--d:0.1s">
+        <li><b>01</b><strong>Sample test</strong><span>Send us samples and we check whether the defects can be detected.</span></li>
+        <li><b>02</b><strong>Site visit</strong><span>We look at line speed, installation space and lighting in person.</span></li>
+        <li><b>03</b><strong>Pilot</strong><span>We install on part of the line and review real results with you.</span></li>
+        <li><b>04</b><strong>Rollout and support</strong><span>After rollout, we keep tuning inspection criteria and models.</span></li>
+      </ol>
+      <div class="cta">
+        <h2 id="cta-title">Tell us what you inspect and how your line runs.</h2>
+        <div class="cta-actions">
+          <a class="arrow-link" href="{{mail_sample}}">Request a sample test</a>
+          <a class="btn btn--solid" href="{{base}}contact/">Talk to an engineer</a>
+        </div>
+      </div>
+    </section>
+    </div>
