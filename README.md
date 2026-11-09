@@ -33,7 +33,6 @@ src/
     └── img/                   # 로고, 제품 사진, 히어로 배경, 파비콘, OG 이미지
         └── scenes/            # 홈 장면 이미지
 tools/render_hero.py           # 히어로 배경 이미지 생성 스크립트 (numpy 필요, 사이트 빌드와 무관)
-tools/render_scenes.py         # RMS-ON 설치 장면 생성 스크립트 (numpy 필요, 사이트 빌드와 무관)
 docs/copy-guide.md             # 홈페이지 문구 작성 기준
 .github/workflows/deploy.yml   # 빌드 → GitHub Pages 배포
 ```
@@ -74,7 +73,7 @@ python3 -m http.server 8000 --directory _site
 | `line-*.webp` | 현장 섹션 (화면 전체 폭) | 2 : 1 | 1000 / 1774 | 보유 이미지 ("예시 이미지" 표시) |
 | `film-*.webp` | 머신비전 장면 (1.6배 확대, 확대 화면 포함) | 16 : 10 | 1000 / 1585 | 보유 이미지 ("예시 이미지" 표시) |
 | `testbed-*.webp` | 개발 · 검증 섹션 | 4 : 3 | 800 / 1448 | 보유 이미지 ("예시 이미지" 표시) |
-| `install-*.webp` | RMS-ON 장면 | 16 : 10 | 900 / 1400 / 1800 | **생성 이미지** (`tools/render_scenes.py`) → 실제 설치 사진으로 교체 권장 |
+| `install-*.webp` | RMS-ON 장면 | 16 : 10 | 900 / 1419 | 보유 이미지 ("설치 예시 이미지" 표시) |
 
 교체할 때는 같은 비율로 여러 크기를 만들어 덮어쓰고, `src/pages/ko|en/index.html`의 `srcset`·`width`·`height` 값과
 이미지 표시 문구(`gen-badge`)를 맞춰 주세요.
