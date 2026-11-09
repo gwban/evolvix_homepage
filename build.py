@@ -32,12 +32,12 @@ SITE_URL = "https://evolvix.co.kr/"
 EMAIL = "evolvix@evolvix.co.kr"
 
 LANGS = ("ko", "en")                      # first entry is the default language (served at /)
-PAGE_IDS = ("index", "inspection", "monitoring", "about", "careers", "contact")
-NAV_IDS = ("inspection", "monitoring", "about", "careers", "contact")
-PAGE_SCRIPTS = {"index": ("story.js",), "inspection": ("story.js",), "monitoring": ("story.js",)}   # page id → scripts in src/assets/js (deferred)
+PAGE_IDS = ("index", "inspection", "monitoring", "careers", "contact")
+NAV_IDS = ("inspection", "monitoring", "careers", "contact")
+PAGE_SCRIPTS = {"index": ("story.js",), "inspection": ("story.js",), "monitoring": ("story.js",), "careers": ("story.js",)}   # page id → scripts in src/assets/js (deferred)
 # Retired page id → target (path from the language root, may include #anchor). A small redirect page is
 # written at the old address for every language; it is noindex and left out of the sitemap.
-REDIRECTS = {"product": "monitoring/#product"}
+REDIRECTS = {"product": "monitoring/#product", "about": ""}
 
 STRINGS = {
     "ko": {
@@ -52,7 +52,7 @@ STRINGS = {
         "ceo": "대표 반근우",
         "address": "경기도 광명시 일직로 43 GIDC A동 1906호",
         "nav": {"inspection": "머신비전 검사", "monitoring": "공정 모니터링",
-                "about": "회사소개", "careers": "채용", "contact": "문의"},
+                "careers": "채용", "contact": "문의"},
         # (subject, body) for mailto links; body is a fill-in template
         "mail": {
             "consult": ("[도입 상담] ", ""),
@@ -75,7 +75,7 @@ STRINGS = {
         "ceo": "CEO Geunwoo Ban",
         "address": "Room 1906, Building A, GIDC, 43 Iljik-ro, Gwangmyeong-si, Gyeonggi-do, Republic of Korea",
         "nav": {"inspection": "Machine Vision", "monitoring": "Monitoring",
-                "about": "About", "careers": "Careers", "contact": "Contact"},
+                "careers": "Careers", "contact": "Contact"},
         "mail": {
             "consult": ("[Consultation] ", ""),
             "sample": ("[Sample Test Request] ",
@@ -292,7 +292,7 @@ def redirect_page(lang: str, old_id: str, target: str) -> str:
     absolute = SITE_URL + url_path(lang, "index") + target
     canonical = SITE_URL + url_path(lang, "index") + target.split("#")[0]   # no fragment in canonical
     return (f'<!doctype html>\n<html lang="{lang}">\n<head>\n  <meta charset="utf-8">\n'
-            f'  <title>RMS-ON</title>\n  <meta name="robots" content="noindex">\n'
+            f'  <title>Evolvix</title>\n  <meta name="robots" content="noindex">\n'
             f'  <link rel="canonical" href="{escape(canonical)}">\n'
             f'  <meta http-equiv="refresh" content="0; url={escape(rel)}">\n'
             f'  <script>location.replace({json.dumps(rel)});</script>\n</head>\n<body>\n'
