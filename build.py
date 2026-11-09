@@ -13,6 +13,7 @@ Usage:
 from __future__ import annotations
 
 import hashlib
+import json
 import re
 import shutil
 import sys
@@ -31,9 +32,12 @@ SITE_URL = "https://evolvix.co.kr/"
 EMAIL = "evolvix@evolvix.co.kr"
 
 LANGS = ("ko", "en")                      # first entry is the default language (served at /)
-PAGE_IDS = ("index", "inspection", "monitoring", "product", "about", "careers", "contact")
-NAV_IDS = ("inspection", "monitoring", "product", "about", "careers", "contact")
-PAGE_SCRIPTS = {"index": ("story.js",), "inspection": ("story.js",)}   # page id → scripts in src/assets/js (deferred)
+PAGE_IDS = ("index", "inspection", "monitoring", "about", "careers", "contact")
+NAV_IDS = ("inspection", "monitoring", "about", "careers", "contact")
+PAGE_SCRIPTS = {"index": ("story.js",), "inspection": ("story.js",), "monitoring": ("story.js",)}   # page id → scripts in src/assets/js (deferred)
+# Retired page id → target (path from the language root, may include #anchor). A small redirect page is
+# written at the old address for every language; it is noindex and left out of the sitemap.
+REDIRECTS = {"product": "monitoring/#product"}
 
 STRINGS = {
     "ko": {
@@ -47,7 +51,7 @@ STRINGS = {
         "company": "주식회사 이볼빅스",
         "ceo": "대표 반근우",
         "address": "경기도 광명시 일직로 43 GIDC A동 1906호",
-        "nav": {"inspection": "머신비전 검사", "monitoring": "공정 모니터링", "product": "RMS-ON",
+        "nav": {"inspection": "머신비전 검사", "monitoring": "공정 모니터링",
                 "about": "회사소개", "careers": "채용", "contact": "문의"},
         # (subject, body) for mailto links; body is a fill-in template
         "mail": {
@@ -70,7 +74,7 @@ STRINGS = {
         "company": "Evolvix Inc.",
         "ceo": "CEO Geunwoo Ban",
         "address": "Room 1906, Building A, GIDC, 43 Iljik-ro, Gwangmyeong-si, Gyeonggi-do, Republic of Korea",
-        "nav": {"inspection": "Machine Vision", "monitoring": "Monitoring", "product": "RMS-ON",
+        "nav": {"inspection": "Machine Vision", "monitoring": "Monitoring",
                 "about": "About", "careers": "Careers", "contact": "Contact"},
         "mail": {
             "consult": ("[Consultation] ", ""),
@@ -281,6 +285,20 @@ def write(path: Path, text: str) -> None:
     path.write_text(text, encoding="utf-8")
 
 
+def redirect_page(lang: str, old_id: str, target: str) -> str:
+    """Static redirect for GitHub Pages (no server rules): canonical + meta refresh + JS (keeps the #anchor)."""
+    path = url_path(lang, old_id)
+    rel = rel_root(path) + url_path(lang, "index") + target
+    absolute = SITE_URL + url_path(lang, "index") + target
+    canonical = SITE_URL + url_path(lang, "index") + target.split("#")[0]   # no fragment in canonical
+    return (f'<!doctype html>\n<html lang="{lang}">\n<head>\n  <meta charset="utf-8">\n'
+            f'  <title>RMS-ON</title>\n  <meta name="robots" content="noindex">\n'
+            f'  <link rel="canonical" href="{escape(canonical)}">\n'
+            f'  <meta http-equiv="refresh" content="0; url={escape(rel)}">\n'
+            f'  <script>location.replace({json.dumps(rel)});</script>\n</head>\n<body>\n'
+            f'  <p><a href="{escape(rel)}">{escape(absolute)}</a></p>\n</body>\n</html>\n')
+
+
 def sitemap() -> str:
     urls = []
     for lang in LANGS:
@@ -335,6 +353,11 @@ def verify(out: Path) -> list[str]:
                 target = target / "index.html"
             if not target.resolve().is_file():
                 problems.append(f"{name}: missing {ref}")
+            elif url.fragment and target.suffix == ".html":
+                ids = _RefCollector()
+                ids.feed(target.read_text(encoding="utf-8"))
+                if url.fragment not in ids.ids:
+                    problems.append(f"{name}: {ref} → no element with id '{url.fragment}'")
     return problems
 
 
@@ -354,6 +377,10 @@ def build() -> None:
             page = load_page(file, lang, pid)
             write(OUT / page.path / "index.html", render(layout, page))
             count += 1
+
+    for lang in LANGS:
+        for old_id, target in REDIRECTS.items():
+            write(OUT / url_path(lang, old_id) / "index.html", redirect_page(lang, old_id, target))
 
     not_found = load_page(SRC / "pages" / "404.html", LANGS[0], "404")
     write(OUT / "404.html", render(layout, not_found, absolute=True))

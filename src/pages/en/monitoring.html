@@ -1,73 +1,266 @@
 <!--
-title: Process Monitoring · Predictive Maintenance
-description: Evolvix measures the rotation and vibration of guide rolls on roll-to-roll lines wirelessly, so you can see roll degradation early and plan maintenance before failures and defects occur.
+title: Process Monitoring · RMS-ON
+description: RMS-ON is a process monitoring system that analyses guide roll rotation speed together with left and right vibration on roll-to-roll lines to reveal changes from normal and signs of trouble.
 -->
-    <section class="page-hero" aria-labelledby="page-title">
-      <div class="container hero-inner">
-        <p class="eyebrow">Process monitoring · Predictive maintenance</p>
-        <h1 id="page-title" class="page-title">One faulty roll<br><span class="text-gradient">can spoil the whole line.</span></h1>
-        <p class="hero-desc">We record guide roll rotation and vibration wirelessly and catch problems before they grow.</p>
-      </div>
-      {{waves}}
-    </section>
+    <div class="ins mon">
+      <section class="ins-intro" aria-labelledby="mon-title">
+        <div class="wrap ins-intro-head">
+          <div data-reveal>
+            <p class="ins-kicker">PROCESS MONITORING / RMS-ON</p>
+            <h1 id="mon-title" class="ins-display">See the condition of every guide roll<br>through rotation and vibration.</h1>
+          </div>
+          <p class="ins-side" data-reveal style="--d:0.1s">We analyse rotation speed together with left and right vibration <br>to reveal changes from normal and signs of trouble.</p>
+        </div>
+        <figure class="ins-hero" data-reveal style="--d:0.2s">
+          <div class="ins-hero-frame">
+            <img src="{{root}}assets/img/monitoring/monitoring-process-1672.webp"
+                 srcset="{{root}}assets/img/monitoring/monitoring-process-1000.webp 1000w, {{root}}assets/img/monitoring/monitoring-process-1672.webp 1672w"
+                 sizes="100vw" width="1672" height="941"
+                 alt="Transparent film wrapping over and under three guide rolls in turn, held taut on a roll-to-roll line">
+          </div>
+          <figcaption class="wrap ins-caption">Example process setup · Concept image</figcaption>
+        </figure>
+        <nav class="wrap mon-subnav" aria-label="On this page">
+          <a href="#principle">How it measures</a><a href="#signals">Warning signs</a><a href="#monitoring">Monitoring</a><a href="#product">System</a><a href="#adoption">Getting started</a>
+        </nav>
+      </section>
 
-    <section class="section" aria-labelledby="problem-title">
-      <div class="container">
-        <div class="section-head">
-          <h2 id="problem-title" class="section-title">How defects start</h2>
+      <section id="principle" class="mon-sec" aria-labelledby="principle-title">
+        <div class="wrap">
+          <div class="ins-head" data-reveal>
+            <p class="ins-kicker">01 / Rotation and vibration</p>
+            <h2 id="principle-title" class="ins-h2">Beyond measuring,<br>we look for warning signs.</h2>
+          </div>
+          <div class="mon-pair">
+            <figure class="mon-pair-item" data-reveal>
+              <div class="mon-frame">
+                <img src="{{root}}assets/img/monitoring/monitoring-rotation-1672.webp"
+                     srcset="{{root}}assets/img/monitoring/monitoring-rotation-900.webp 900w, {{root}}assets/img/monitoring/monitoring-rotation-1672.webp 1672w"
+                     sizes="(min-width: 1024px) 50vw, 100vw" width="1672" height="941" loading="lazy"
+                     alt="Optical sensor on a bracket fixed to the bearing support, shining light onto the rotating roll shaft">
+              </div>
+              <figcaption>
+                <span class="ins-caption">Concept image</span>
+                <h3 class="ins-h3">Rotation</h3>
+                <p class="ins-body">A non-contact optical method tracks changes in rotation.</p>
+              </figcaption>
+            </figure>
+            <figure class="mon-pair-item" data-reveal style="--d:0.12s">
+              <div class="mon-frame">
+                <img src="{{root}}assets/img/monitoring/monitoring-vibration-1672.webp"
+                     srcset="{{root}}assets/img/monitoring/monitoring-vibration-900.webp 900w, {{root}}assets/img/monitoring/monitoring-vibration-1672.webp 1672w"
+                     sizes="(min-width: 1024px) 50vw, 100vw" width="1672" height="941" loading="lazy"
+                     alt="Cable-type vibration sensor installed on the fixed bearing support that holds the guide roll">
+              </div>
+              <figcaption>
+                <span class="ins-caption">Concept image</span>
+                <h3 class="ins-h3">Vibration</h3>
+                <p class="ins-body">We measure the vibration transmitted to the fixed support.</p>
+              </figcaption>
+            </figure>
+          </div>
+          <p class="mon-note" data-reveal>Rotation changes are checked together with left and right vibration at the same moment.</p>
         </div>
-        <div class="bento">
-          <div class="tile span-4">
-            <span class="tile-num">01</span>
-            <h3 class="tile-title">Guide roll wear</h3>
-            <p class="tile-text">As bearings wear or rolls get dirty, rotation slowly becomes unstable.</p>
-            <span class="flow-arrow tile-foot" aria-hidden="true">→</span>
-          </div>
-          <div class="tile span-4">
-            <span class="tile-num">02</span>
-            <h3 class="tile-title">Uneven tension</h3>
-            <p class="tile-text">Slip, idle spinning and vibration leave the film under uneven tension.</p>
-            <span class="flow-arrow tile-foot" aria-hidden="true">→</span>
-          </div>
-          <div class="tile span-4">
-            <span class="tile-num">03</span>
-            <h3 class="tile-title">Defective product</h3>
-            <p class="tile-text">Scratches and wrinkles appear, and by the time they're found, a lot has already been produced.</p>
-          </div>
-          <div class="tile tile--accent span-12">
-            {{wave_lines}}
-            <span class="tile-label">What we do</span>
-            <h3 class="tile-title tile-title--xl">We look for the signal in the roll,<br>before defects show up in the product.</h3>
-            <ul class="feature-list">
-              <li>{{icon:pulse}}Measure RPM and vibration on every roll, continuously</li>
-              <li>{{icon:search}}Spot patterns that differ from normal early</li>
-              <li>{{icon:clock}}Track each roll's wear to time replacements</li>
-              <li>{{icon:wrench}}Plan maintenance before the line has to stop</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section" aria-labelledby="rmson-title">
-      <div class="container bento">
-        <a class="tile media-tile span-6" href="{{base}}product/">
-          <img src="{{root}}assets/img/rms-on-edge.webp" alt="RMS-ON Edge wireless sensor node" width="1200" height="900" loading="lazy">
-          <div class="tile-body">
-            <span class="tile-label">Solution</span>
-            <h2 id="rmson-title" class="tile-title">RMS-ON</h2>
-            <p class="tile-text">A wireless node on the end of each roll shaft measures rotation and vibration. No cabling work needed.</p>
-            <span class="more tile-foot">More about RMS-ON ›</span>
+      <section id="signals" class="mon-sec" aria-labelledby="signals-title">
+        <div class="wrap mon-split">
+          <div class="ins-head" data-reveal>
+            <p class="ins-kicker">02 / Warning signs</p>
+            <h2 id="signals-title" class="ins-h2">What changed,<br>told apart clearly.</h2>
           </div>
-        </a>
-        <div class="tile tile--ink span-6">
-          {{wave_lines}}
-          <span class="tile-label">Pilot collaboration</span>
-          <h2 class="tile-title tile-title--xl">Wondering if it works<br>on your line?</h2>
-          <p class="tile-text">We can start by installing on part of the line and reviewing the data together.</p>
-          <div class="btn-row tile-foot">
-            <a class="btn btn--light" href="{{mail_pilot}}">Ask about a pilot</a>
+          <div data-reveal style="--d:0.1s">
+            <ol class="ins-sys-list">
+              <li><b>01</b><div><strong>Guide roll degradation</strong><span>Signs of wear in accumulated vibration changes.</span></div></li>
+              <li><b>02</b><div><strong>Left–right imbalance</strong><span>Differences in left and right vibration size and pattern at the same moment.</span></div></li>
+              <li><b>03</b><div><strong>Signs of slip</strong><span>Moments when rotation speed changes abruptly.</span></div></li>
+              <li><b>04</b><div><strong>Impact events</strong><span>Short, large vibration changes and when they happened.</span></div></li>
+            </ol>
+            <p class="ins-caption mon-fine">Warning signs are information to support maintenance decisions. What is provided may vary with the installation and what we agree on.</p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section class="mon-speed" data-story data-step-selector=".mon-ind li" data-steps-decorative aria-labelledby="speed-title">
+        <div class="wrap mon-speed-pin">
+          <div class="mon-speed-copy">
+            <p class="ins-kicker">03 / Speed changes</p>
+            <h2 id="speed-title" class="ins-h2">Normal speed changes,<br>told apart from momentary anomalies.</h2>
+            <p class="ins-body">Acceleration and deceleration are shown as normal operation; <br>abrupt momentary changes are flagged as separate events.</p>
+            <ol class="ins-ind mon-ind" aria-label="Steps">
+              <li>Measuring point</li>
+              <li>Speed signal</li>
+              <li>Anomaly</li>
+            </ol>
+          </div>
+          <div class="mon-speed-stage">
+            <figure class="mon-speed-photo" aria-hidden="true">
+              <img src="{{root}}assets/img/monitoring/monitoring-rotation-1672.webp" width="1672" height="941" loading="lazy" alt="">
+              <span class="mon-pin" style="--x:68.5%;--y:39.5%"><i></i><b>Measuring point · roll shaft rotation</b></span>
+            </figure>
+            <figure class="mon-chart mon-chart--speed">
+              <div class="mon-chart-head"><strong>Roll surface speed</strong><span>Unit: m/min</span></div>
+              <svg viewBox="0 0 1000 260" role="img" aria-labelledby="speed-sum">
+                <title id="speed-sum">Example of roll surface speed. From a steady low speed it accelerates smoothly, holds a higher speed, then decelerates smoothly back to the low speed. A short, sharp speed peak then appears once and returns straight to the previous speed; that moment is marked as suspected slip.</title>
+                <g class="seg">
+                  <line x1="0" y1="34" x2="0" y2="232"/><line x1="140" y1="34" x2="140" y2="232"/><line x1="300" y1="34" x2="300" y2="232"/><line x1="480" y1="34" x2="480" y2="232"/><line x1="640" y1="34" x2="640" y2="232"/>
+                  <text x="70" y="22">Steady</text><text x="220" y="22">Accel.</text><text x="390" y="22">Steady</text><text x="560" y="22">Decel.</text><text x="720" y="22">Steady</text>
+                </g>
+                <rect class="evt-band" x="806" y="34" width="48" height="198" rx="3"/>
+                <path class="line" d="M0 196.8 L4 197.7 L8 198.0 L12 197.5 L16 196.6 L20 195.8 L24 195.6 L28 196.0 L32 196.7 L36 197.1 L40 196.8 L44 195.9 L48 194.8 L52 194.2 L56 194.4 L60 195.2 L64 195.9 L68 196.2 L72 195.8 L76 195.0 L80 194.4 L84 194.5 L88 195.4 L92 196.5 L96 197.2 L100 197.3 L104 196.7 L108 196.0 L112 195.7 L116 196.1 L120 197.0 L124 197.7 L128 197.9 L132 197.3 L136 196.3 L140 195.4 L144 195.0 L148 194.9 L152 194.7 L156 193.9 L160 192.0 L164 189.3 L168 186.3 L172 183.6 L176 181.5 L180 179.6 L184 177.6 L188 174.8 L192 171.2 L196 167.1 L200 163.2 L204 159.9 L208 157.1 L212 154.5 L216 151.4 L220 147.6 L224 143.2 L228 138.7 L232 134.6 L236 131.3 L240 128.6 L244 125.7 L248 122.4 L252 118.4 L256 114.3 L260 110.5 L264 107.6 L268 105.6 L272 104.1 L276 102.4 L280 100.3 L284 98.0 L288 95.9 L292 94.8 L296 94.8 L300 95.6 L304 96.5 L308 96.8 L312 96.4 L316 95.7 L320 95.3 L324 95.6 L328 96.4 L332 97.4 L336 98.0 L340 97.7 L344 96.9 L348 96.0 L352 95.6 L356 95.9 L360 96.6 L364 97.2 L368 97.1 L372 96.3 L376 95.2 L380 94.4 L384 94.3 L388 95.0 L392 95.8 L396 96.2 L400 95.9 L404 95.2 L408 94.5 L412 94.4 L416 95.0 L420 96.1 L424 97.0 L428 97.3 L432 96.8 L436 96.1 L440 95.7 L444 95.9 L448 96.7 L452 97.6 L456 98.0 L460 97.6 L464 96.6 L468 95.7 L472 95.2 L476 95.5 L480 96.2 L484 96.9 L488 97.3 L492 97.4 L496 97.5 L500 98.4 L504 100.3 L508 103.1 L512 106.3 L516 109.2 L520 111.7 L524 114.0 L528 116.4 L532 119.7 L536 123.7 L540 128.3 L544 132.7 L548 136.5 L552 139.6 L556 142.6 L560 145.8 L564 149.7 L568 154.2 L572 158.6 L576 162.5 L580 165.5 L584 167.9 L588 170.3 L592 173.2 L596 176.6 L600 180.2 L604 183.4 L608 185.8 L612 187.3 L616 188.4 L620 189.7 L624 191.5 L628 193.6 L632 195.5 L636 196.5 L640 196.5 L644 195.8 L648 195.3 L652 195.3 L656 196.1 L660 197.1 L664 197.9 L668 197.9 L672 197.2 L676 196.3 L680 195.7 L684 195.8 L688 196.5 L692 197.1 L696 197.2 L700 196.6 L704 195.5 L708 194.6 L712 194.3 L716 194.8 L720 195.6 L724 196.2 L728 196.1 L732 195.4 L736 194.6 L740 194.3 L744 194.7 L748 195.7 L752 196.7 L756 197.2 L760 196.9 L764 196.2 L768 195.7 L772 195.7 L776 196.4 L780 197.4 L784 197.9 L788 197.8 L792 196.9 L796 195.9 L800 195.4 L804 195.5 L808 196.1 L812 196.7 L816 196.7 L820 158.4 L824 119.6 L828 81.1 L832 81.0 L836 119.3 L840 157.9 L844 196.2 L848 196.2 L852 195.6 L856 194.9 L860 194.7 L864 195.2 L868 196.3 L872 197.2 L876 197.6 L880 197.3 L884 196.5 L888 195.9 L892 195.9 L896 196.5 L900 197.3 L904 197.8 L908 197.4 L912 196.5 L916 195.4 L920 194.9 L924 195.0 L928 195.7 L932 196.3 L936 196.3 L940 195.7 L944 194.8 L948 194.1 L952 194.1 L956 194.9 L960 195.9 L964 196.6 L968 196.5 L972 196.0 L976 195.3 L980 195.2 L984 195.7 L988 196.8 L992 197.7 L996 197.9 L1000 197.4"/>
+                <circle class="evt-dot" cx="830" cy="64" r="7"/>
+                <g class="evt-label"><rect x="858" y="44" width="134" height="34" rx="4"/><text x="925" y="67">Suspected slip</text></g>
+                <line class="axis" x1="0" y1="246" x2="1000" y2="246"/>
+              </svg>
+              <figcaption class="ins-caption">Example data for explaining the feature</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="mon-sec mon-sec--gray" aria-labelledby="vib-title">
+        <div class="wrap">
+          <div class="mon-vib-head">
+            <div class="ins-head" data-reveal>
+              <p class="ins-kicker">04 / Left and right vibration</p>
+              <h2 id="vib-title" class="ins-h2">Differences between sides,<br>down to momentary impacts.</h2>
+            </div>
+            <div class="mon-vib-side" data-reveal style="--d:0.1s">
+              <p class="ins-body">Compare left and right vibration at the same moment, <br>and see exactly when a sudden change happened.</p>
+              <svg class="mon-schema" viewBox="0 0 320 96" role="img" aria-label="Simultaneous measurement: a vibration sensor on the fixed support at each end of the roll, left and right">
+                <rect class="roll" x="62" y="30" width="196" height="30" rx="4"/>
+                <rect class="sup" x="36" y="22" width="22" height="58" rx="2"/><rect class="sup" x="262" y="22" width="22" height="58" rx="2"/>
+                <circle class="sen" cx="47" cy="38" r="6"/><circle class="sen" cx="273" cy="38" r="6"/>
+                <text x="47" y="94">Left sensor</text><text x="273" y="94">Right sensor</text>
+              </svg>
+            </div>
+          </div>
+          <figure class="mon-chart mon-chart--vib" data-reveal style="--d:0.15s">
+            <svg viewBox="0 0 1000 330" role="img" aria-labelledby="vib-sum">
+              <title id="vib-sum">Example comparing left and right support vibration on the same time axis and the same vertical scale. At first both sides show similar small vibration; in the middle the right side grows larger, marked as a left–right difference. Later a short, large impact peak appears and decays, marked as an impact event.</title>
+              <rect class="evt-band evt-band--diff" x="360" y="26" width="200" height="290" rx="3"/>
+              <line class="evt-line" x1="790" y1="26" x2="790" y2="316"/>
+              <text class="tag tag--diff" x="460" y="18">Left–right difference</text>
+              <text class="tag tag--shock" x="790" y="18">Impact event</text>
+              <g transform="translate(0 30)">
+                <text class="row-label" x="6" y="16">Left</text>
+                <line class="axis" x1="0" y1="60" x2="1000" y2="60"/>
+                <path class="line" d="M0 60.6 L3 59.3 L6 57.8 L9 64.0 L12 56.4 L15 64.6 L18 56.8 L21 62.1 L24 61.2 L27 59.6 L30 64.7 L33 56.3 L36 64.2 L39 57.8 L42 62.1 L45 60.6 L48 57.3 L51 63.1 L54 55.9 L57 64.0 L60 54.4 L63 61.1 L66 58.5 L69 60.1 L72 62.5 L75 55.1 L78 65.5 L81 55.7 L84 61.0 L87 58.2 L90 57.5 L93 62.8 L96 55.6 L99 65.5 L102 55.9 L105 62.2 L108 60.8 L111 60.8 L114 62.8 L117 54.7 L120 64.8 L123 55.9 L126 63.9 L129 58.5 L132 58.2 L135 60.9 L138 55.9 L141 65.0 L144 55.2 L147 63.3 L150 60.2 L153 59.7 L156 62.6 L159 56.0 L162 65.0 L165 55.4 L168 61.7 L171 59.5 L174 61.1 L177 61.6 L180 54.9 L183 63.6 L186 57.1 L189 63.7 L192 59.5 L195 59.4 L198 63.3 L201 56.1 L204 64.3 L207 55.6 L210 62.3 L213 58.4 L216 58.3 L219 61.6 L222 56.1 L225 63.6 L228 55.2 L231 63.3 L234 57.0 L237 59.1 L240 60.6 L243 55.6 L246 64.8 L249 55.1 L252 62.6 L255 55.4 L258 59.8 L261 62.7 L264 57.5 L267 63.6 L270 56.4 L273 65.7 L276 57.5 L279 62.7 L282 60.5 L285 56.8 L288 65.1 L291 55.9 L294 63.7 L297 57.7 L300 60.5 L303 59.6 L306 56.6 L309 63.6 L312 55.9 L315 65.4 L318 56.1 L321 62.9 L324 61.1 L327 56.1 L330 63.9 L333 56.2 L336 65.0 L339 56.1 L342 60.8 L345 59.1 L348 58.9 L351 64.7 L354 56.4 L357 64.5 L360 55.2 L363 61.2 L366 59.3 L369 58.2 L372 64.1 L375 55.6 L378 64.7 L381 56.5 L384 62.3 L387 59.5 L390 56.0 L393 64.0 L396 56.2 L399 63.5 L402 56.5 L405 60.9 L408 60.4 L411 59.7 L414 64.1 L417 54.8 L420 63.1 L423 55.8 L426 62.7 L429 60.2 L432 59.8 L435 61.6 L438 54.9 L441 64.7 L444 55.2 L447 61.8 L450 60.1 L453 57.4 L456 61.7 L459 55.5 L462 64.3 L465 56.5 L468 62.6 L471 57.9 L474 58.1 L477 63.0 L480 56.4 L483 63.7 L486 56.5 L489 61.7 L492 59.6 L495 58.8 L498 63.8 L501 57.1 L504 63.7 L507 54.1 L510 63.6 L513 60.1 L516 60.8 L519 61.1 L522 57.6 L525 65.8 L528 54.3 L531 64.7 L534 58.1 L537 59.4 L540 61.9 L543 56.5 L546 64.8 L549 55.3 L552 64.2 L555 58.7 L558 59.1 L561 61.7 L564 57.1 L567 63.9 L570 56.4 L573 64.1 L576 58.2 L579 59.2 L582 62.0 L585 56.8 L588 65.0 L591 55.6 L594 63.3 L597 58.0 L600 62.1 L603 62.8 L606 56.5 L609 65.4 L612 55.0 L615 64.2 L618 56.4 L621 60.0 L624 60.8 L627 57.2 L630 63.8 L633 56.1 L636 63.6 L639 57.3 L642 61.5 L645 62.0 L648 55.5 L651 66.0 L654 55.0 L657 64.5 L660 56.7 L663 62.3 L666 60.6 L669 56.1 L672 63.1 L675 55.5 L678 63.3 L681 57.8 L684 62.2 L687 60.5 L690 56.5 L693 65.2 L696 56.2 L699 63.3 L702 56.2 L705 62.2 L708 61.5 L711 56.5 L714 64.9 L717 54.8 L720 64.9 L723 56.0 L726 62.7 L729 60.8 L732 55.8 L735 65.2 L738 54.2 L741 65.9 L744 57.5 L747 61.9 L750 60.2 L753 58.4 L756 63.9 L759 55.4 L762 65.2 L765 56.0 L768 61.4 L771 61.6 L774 58.0 L777 62.8 L780 56.2 L783 64.6 L786 54.6 L789 61.4 L792 21.8 L795 44.3 L798 94.1 L801 60.9 L804 41.3 L807 53.2 L810 81.3 L813 57.5 L816 45.0 L819 66.1 L822 66.0 L825 61.7 L828 47.9 L831 65.7 L834 63.2 L837 55.5 L840 58.8 L843 59.7 L846 67.5 L849 53.5 L852 61.3 L855 61.0 L858 60.3 L861 60.7 L864 55.8 L867 65.4 L870 56.0 L873 61.9 L876 58.7 L879 58.5 L882 62.2 L885 54.6 L888 65.1 L891 56.0 L894 63.6 L897 59.2 L900 60.4 L903 64.8 L906 56.3 L909 65.3 L912 56.1 L915 63.2 L918 56.7 L921 61.3 L924 61.9 L927 56.8 L930 65.2 L933 55.0 L936 63.3 L939 57.6 L942 58.4 L945 61.8 L948 56.6 L951 65.5 L954 56.7 L957 64.9 L960 56.3 L963 59.4 L966 63.5 L969 55.8 L972 64.4 L975 56.2 L978 64.4 L981 57.8 L984 61.1 L987 61.7 L990 58.5 L993 64.8 L996 55.6 L999 65.1"/>
+              </g>
+              <g transform="translate(0 180)">
+                <text class="row-label" x="6" y="16">Right</text>
+                <line class="axis" x1="0" y1="60" x2="1000" y2="60"/>
+                <path class="line" d="M0 64.1 L3 61.5 L6 58.9 L9 63.1 L12 55.2 L15 63.9 L18 56.6 L21 63.5 L24 58.2 L27 58.1 L30 63.5 L33 55.7 L36 65.5 L39 55.9 L42 61.0 L45 60.3 L48 57.8 L51 62.6 L54 55.5 L57 65.8 L60 54.9 L63 62.5 L66 58.2 L69 59.3 L72 63.5 L75 54.5 L78 65.6 L81 55.4 L84 63.7 L87 58.8 L90 59.5 L93 63.6 L96 56.6 L99 64.1 L102 55.7 L105 64.5 L108 59.0 L111 59.5 L114 63.0 L117 54.8 L120 63.8 L123 54.7 L126 63.5 L129 58.3 L132 59.8 L135 64.2 L138 55.2 L141 63.9 L144 55.3 L147 63.4 L150 60.3 L153 58.0 L156 64.6 L159 54.7 L162 64.1 L165 56.0 L168 62.8 L171 59.0 L174 61.2 L177 63.4 L180 55.9 L183 64.4 L186 56.3 L189 64.7 L192 56.4 L195 61.4 L198 62.0 L201 56.9 L204 64.7 L207 56.1 L210 63.8 L213 58.2 L216 61.6 L219 61.5 L222 55.3 L225 63.7 L228 56.6 L231 63.0 L234 57.0 L237 62.4 L240 62.6 L243 55.7 L246 65.0 L249 55.8 L252 63.9 L255 59.4 L258 60.2 L261 60.6 L264 56.4 L267 64.1 L270 55.3 L273 64.0 L276 57.8 L279 62.8 L282 61.5 L285 57.8 L288 64.6 L291 56.3 L294 64.4 L297 56.3 L300 61.3 L303 59.2 L306 55.5 L309 64.3 L312 55.0 L315 63.3 L318 57.1 L321 60.2 L324 62.1 L327 56.2 L330 65.3 L333 55.1 L336 64.2 L339 56.3 L342 60.1 L345 62.5 L348 57.5 L351 62.7 L354 54.7 L357 64.8 L360 57.0 L363 62.9 L366 60.3 L369 58.8 L372 65.6 L375 51.9 L378 68.6 L381 51.3 L384 68.6 L387 57.6 L390 50.6 L393 73.0 L396 47.7 L399 80.4 L402 48.2 L405 64.5 L408 56.9 L411 52.5 L414 75.7 L417 44.8 L420 75.0 L423 46.6 L426 72.3 L429 56.1 L432 60.7 L435 69.3 L438 47.7 L441 80.0 L444 48.3 L447 68.5 L450 53.9 L453 57.6 L456 65.7 L459 44.8 L462 79.5 L465 46.6 L468 69.5 L471 50.4 L474 50.0 L477 70.1 L480 43.4 L483 78.9 L486 42.9 L489 76.9 L492 61.6 L495 60.1 L498 67.7 L501 41.2 L504 77.2 L507 46.8 L510 71.6 L513 59.0 L516 54.0 L519 71.2 L522 45.6 L525 76.6 L528 48.7 L531 67.3 L534 60.0 L537 55.3 L540 63.2 L543 51.5 L546 66.7 L549 53.6 L552 64.6 L555 60.0 L558 61.6 L561 62.0 L564 55.3 L567 65.2 L570 55.3 L573 63.5 L576 57.2 L579 60.6 L582 61.4 L585 57.8 L588 64.3 L591 54.4 L594 64.7 L597 58.6 L600 60.1 L603 63.2 L606 54.9 L609 64.4 L612 56.4 L615 63.2 L618 58.0 L621 62.3 L624 62.0 L627 58.1 L630 64.2 L633 55.1 L636 63.6 L639 56.9 L642 62.0 L645 62.0 L648 55.7 L651 63.6 L654 54.2 L657 65.2 L660 55.3 L663 62.3 L666 62.0 L669 57.7 L672 63.8 L675 55.8 L678 65.2 L681 57.5 L684 59.8 L687 61.4 L690 58.3 L693 63.5 L696 55.8 L699 64.5 L702 57.2 L705 60.1 L708 59.2 L711 56.9 L714 64.3 L717 55.6 L720 63.6 L723 56.6 L726 61.3 L729 61.7 L732 58.8 L735 62.7 L738 54.5 L741 65.0 L744 56.4 L747 63.2 L750 60.3 L753 56.7 L756 63.8 L759 54.2 L762 65.6 L765 56.5 L768 61.7 L771 61.8 L774 56.1 L777 63.9 L780 55.7 L783 63.6 L786 57.4 L789 60.9 L792 34.8 L795 50.8 L798 85.2 L801 59.5 L804 48.2 L807 55.8 L810 73.9 L813 57.4 L816 49.9 L819 66.1 L822 62.8 L825 61.4 L828 52.7 L831 64.9 L834 60.8 L837 57.2 L840 59.4 L843 56.5 L846 65.5 L849 54.6 L852 61.8 L855 60.7 L858 60.5 L861 61.6 L864 55.2 L867 66.1 L870 55.0 L873 60.9 L876 60.0 L879 59.9 L882 62.5 L885 55.9 L888 65.4 L891 54.7 L894 62.6 L897 59.6 L900 60.0 L903 64.4 L906 56.5 L909 64.2 L912 55.4 L915 63.5 L918 56.8 L921 59.3 L924 61.7 L927 57.1 L930 64.0 L933 55.9 L936 63.3 L939 58.4 L942 61.2 L945 61.3 L948 57.1 L951 64.3 L954 55.9 L957 62.9 L960 59.0 L963 60.3 L966 63.2 L969 57.8 L972 64.9 L975 54.8 L978 62.9 L981 57.0 L984 58.2 L987 62.5 L990 56.6 L993 63.9 L996 55.5 L999 63.5"/>
+              </g>
+              <text class="row-label row-label--end" x="1000" y="326">Time →</text>
+            </svg>
+            <figcaption class="ins-caption">Simultaneous measurement · Example data · Same scale on both sides</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="monitoring" class="mon-sec" aria-labelledby="dash-title">
+        <div class="wrap">
+          <div class="mon-vib-head">
+            <div class="ins-head" data-reveal>
+              <p class="ins-kicker">05 / Monitoring</p>
+              <h2 id="dash-title" class="ins-h2">Which roll changed,<br>and when.</h2>
+            </div>
+            <p class="ins-body" data-reveal style="--d:0.1s">See the condition of dozens of rolls at a glance, <br>then look into the speed and vibration of the one you select.</p>
+          </div>
+          <figure class="mon-dash" data-reveal style="--d:0.15s">
+            <a class="mon-dash-link" href="{{root}}assets/img/monitoring/monitoring-dashboard-1586.webp" target="_blank" rel="noopener">
+              <img src="{{root}}assets/img/monitoring/monitoring-dashboard-1586.webp"
+                   srcset="{{root}}assets/img/monitoring/monitoring-dashboard-1000.webp 1000w, {{root}}assets/img/monitoring/monitoring-dashboard-1586.webp 1586w"
+                   sizes="(min-width: 1400px) 1360px, 100vw" width="1586" height="992" loading="lazy"
+                   alt="Example RMS-ON guide roll monitoring screen (Korean UI). Of 48 rolls shown as round nodes, 45 are normal and 3 abnormal; for the selected roll R23, surface speed and impact charts share one time axis and show a speed spike and an impact at the same moment. Demo data.">
+              <span class="mon-zoom-hint">View full size ↗</span>
+            </a>
+            <figcaption class="ins-caption">Example monitoring screen · Not real customer data. Select the image to open it at full size.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="product" class="mon-sec mon-sec--line" aria-labelledby="product-title">
+        <div class="wrap">
+          <div class="ins-head" data-reveal>
+            <p class="ins-kicker">06 / RMS-ON system</p>
+            <h2 id="product-title" class="ins-h2">From sensor to monitoring,<br>one system.</h2>
+          </div>
+          <div class="mon-pair">
+            <figure class="mon-pair-item" data-reveal>
+              <div class="mon-frame mon-frame--product">
+                <img src="{{root}}assets/img/rms-on-edge.webp" width="1200" height="900" loading="lazy" alt="RMS-ON Edge wireless node">
+              </div>
+              <figcaption><h3 class="ins-h3">RMS-ON Edge</h3><p class="ins-body">Collects and processes sensor data</p></figcaption>
+            </figure>
+            <figure class="mon-pair-item" data-reveal style="--d:0.12s">
+              <div class="mon-frame mon-frame--product">
+                <img src="{{root}}assets/img/rms-on-gateway.webp" width="1200" height="900" loading="lazy" alt="RMS-ON Gateway industrial wireless gateway">
+              </div>
+              <figcaption><h3 class="ins-h3">RMS-ON Gateway</h3><p class="ins-body">Receives node data and forwards it to the server</p></figcaption>
+            </figure>
+          </div>
+
+          <div class="mon-flow" data-reveal role="img" aria-label="Connection: sensors are wired to RMS-ON Edge, Edge sends data to the Gateway over Zigbee wireless, and the Gateway forwards it to the server and monitoring screen over Ethernet or Wi-Fi.">
+            <span class="node">Sensor</span><span class="link link--wired">Wired</span>
+            <span class="node">RMS-ON Edge</span><span class="link link--wireless">Zigbee</span>
+            <span class="node">RMS-ON Gateway</span><span class="link link--wired">Ethernet · Wi-Fi</span>
+            <span class="node">Server · Monitoring</span>
+          </div>
+          <p class="mon-note">Nodes talk to the gateway wirelessly, reducing communication cabling between machines.</p>
+
+          <div class="mon-specs" data-reveal>
+            <div>
+              <h3 class="mon-spec-title">RMS-ON Edge specifications</h3>
+              <dl class="mon-spec">
+                <dt>Type</dt><dd>Wireless RPM &amp; vibration sensor node</dd>
+                <dt>Measurement</dt><dd>RPM / 3-axis vibration</dd>
+                <dt>Sensing</dt><dd>Optical RPM sensor · 3-axis MEMS accelerometer</dd>
+                <dt>Sampling</dt><dd>Up to 1.0 kHz</dd>
+                <dt>Connection</dt><dd>Zigbee / XBee wireless</dd>
+                <dt>Power</dt><dd>Lithium battery, 17,000 mAh</dd>
+                <dt>Battery life</dt><dd>Up to 1 year <small>Depends on operating conditions such as measurement and transmission intervals.</small></dd>
+                <dt>Size / weight</dt><dd>100 × 65 × 55 mm / approx. 200 g</dd>
+                <dt>Operating temp.</dt><dd>-20 ℃ to 70 ℃</dd>
+              </dl>
+            </div>
+            <div>
+              <h3 class="mon-spec-title">RMS-ON Gateway specifications</h3>
+              <dl class="mon-spec">
+                <dt>Type</dt><dd>Industrial wireless data gateway</dd>
+                <dt>Function</dt><dd>Zigbee data collection · server uplink</dd>
+                <dt>Node link</dt><dd>Zigbee wireless</dd>
+                <dt>Server link</dt><dd>Ethernet / Wi-Fi</dd>
+                <dt>Power</dt><dd>DC 5V (USB Type-C), continuous</dd>
+                <dt>Status</dt><dd>Multi-color LED indicators</dd>
+                <dt>Antenna</dt><dd>External high-gain antenna</dd>
+                <dt>Size</dt><dd>145 × 77 × 38 mm</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="adoption" class="ins-process mon-adopt" aria-labelledby="adopt-title">
+        <div class="wrap">
+          <p class="ins-kicker" data-reveal>07 / Getting started</p>
+          <h2 id="adopt-title" class="ins-h2" data-reveal>Start with a few rolls,<br>and review it together.</h2>
+          <ol class="ins-steps mon-steps" data-reveal style="--d:0.1s">
+            <li><b>01</b><strong>Site check</strong><span>We check installation points, power and operating conditions.</span></li>
+            <li><b>02</b><strong>Pilot installation</strong><span>We start on some rolls and collect data.</span></li>
+            <li><b>03</b><strong>Data review</strong><span>We review the changes together and plan the rollout.</span></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="ins-cta" aria-labelledby="cta-title">
+        <div class="wrap ins-cta-row">
+          <div>
+            <h2 id="cta-title" class="ins-h2">Wondering if it works <br>on your line?</h2>
+            <p class="ins-body">Tell us about the equipment and the changes you want to see.</p>
+          </div>
+          <a class="ins-btn" href="{{mail_pilot}}">Ask about a pilot</a>
+        </div>
+      </section>
+    </div>

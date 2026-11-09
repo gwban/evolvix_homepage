@@ -12,8 +12,10 @@
 |---|---|---|
 | 홈 | `/` | `/en/` |
 | 머신비전 검사 | `/inspection/` | `/en/inspection/` |
-| 공정 모니터링 · 예지보전 | `/monitoring/` | `/en/monitoring/` |
-| RMS-ON | `/product/` | `/en/product/` |
+| 공정 모니터링 · RMS-ON | `/monitoring/` | `/en/monitoring/` |
+
+기존 RMS-ON 주소 `/product/`, `/en/product/`는 `build.py`의 `REDIRECTS`로 만든 이동 페이지가
+`/monitoring/#product`로 보냅니다(검색 제외 noindex, canonical은 `/monitoring/`, 사이트맵 제외).
 | 회사소개 | `/about/` | `/en/about/` |
 | 채용 | `/careers/` | `/en/careers/` |
 | 문의 | `/contact/` | `/en/contact/` |
@@ -32,7 +34,8 @@ src/
     ├── js/story.js            # 홈 · 머신비전 페이지: sticky 스크롤 연출 · 등장 효과 (없어도 내용은 모두 보임)
     └── img/                   # 로고, 제품 사진, 히어로 배경, 파비콘, OG 이미지
         ├── scenes/            # 홈 장면 이미지
-        └── inspection/        # 머신비전 검사 페이지 이미지 (컨셉 이미지)
+        ├── inspection/        # 머신비전 검사 페이지 이미지 (컨셉 이미지)
+        └── monitoring/        # 공정 모니터링 페이지 이미지 (컨셉 이미지 · 데모 관제 화면)
 tools/render_hero.py           # 히어로 배경 이미지 생성 스크립트 (numpy 필요, 사이트 빌드와 무관)
 docs/copy-guide.md             # 홈페이지 문구 작성 기준
 .github/workflows/deploy.yml   # 빌드 → GitHub Pages 배포
