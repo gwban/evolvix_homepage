@@ -5,7 +5,7 @@ They stand in until real photos are available and are labelled as such on the si
 Not part of the site build; requires numpy and Pillow.
 
 Usage: python3 tools/render_scenes.py src/assets/img/scenes
-Writes <name>-<width>.webp for each scene plus scenes.json with annotation positions (%).
+Writes <name>-<width>.webp for each scene; annotation positions (%) go to tools/scenes.json.
 """
 from __future__ import annotations
 
@@ -480,7 +480,7 @@ def main(out: Path):
         save(img, out, name, widths)
         notes[name] = n
         print(name, "done", n)
-    (out / "scenes.json").write_text(json.dumps(notes, indent=2))
+    (Path(__file__).parent / "scenes.json").write_text(json.dumps(notes, indent=2))   # annotation positions, not published
 
 
 if __name__ == "__main__":
