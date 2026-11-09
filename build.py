@@ -34,7 +34,7 @@ EMAIL = "evolvix@evolvix.co.kr"
 LANGS = ("ko", "en")                      # first entry is the default language (served at /)
 PAGE_IDS = ("index", "inspection", "monitoring", "careers", "contact")
 NAV_IDS = ("inspection", "monitoring", "careers", "contact")
-PAGE_SCRIPTS = {"index": ("story.js",), "inspection": ("story.js",), "monitoring": ("story.js",), "careers": ("story.js",)}   # page id → scripts in src/assets/js (deferred)
+PAGE_SCRIPTS = {"index": ("story.js",), "inspection": ("story.js",), "monitoring": ("story.js",), "careers": ("story.js",), "contact": ("contact.js",)}   # page id → scripts in src/assets/js (deferred)
 # Retired page id → target (path from the language root, may include #anchor). A small redirect page is
 # written at the old address for every language; it is noindex and left out of the sitemap.
 REDIRECTS = {"product": "monitoring/#product", "about": ""}
@@ -55,12 +55,19 @@ STRINGS = {
                 "careers": "채용", "contact": "문의"},
         # (subject, body) for mailto links; body is a fill-in template
         "mail": {
-            "consult": ("[도입 상담] ", ""),
-            "sample": ("[샘플 테스트 의뢰] ",
-                       "검사 대상(제품/소재):\n찾으려는 결함 또는 측정 항목:\n라인 속도:\n"
-                       "샘플 수량 / 발송 예정일:\n회사명 / 담당자 / 연락처:\n"),
-            "pilot": ("[파일럿 협업] ", ""),
             "job": ("[입사 지원] ", ""),
+        },
+        # Contact page mail composer (contact.js); only these whitelisted values are ever used.
+        "contact": {
+            "prefix": "[EVOLVIX 문의]", "general": "일반 문의",
+            "topics": {"inspection": "머신비전 검사", "monitoring": "공정 모니터링·RMS-ON", "other": "기타·협업"},
+            "intents": {"sample": "샘플 테스트", "consult": "도입 상담", "pilot": "파일럿 협업"},
+            "before": ["안녕하세요. 아래 내용으로 문의드립니다.", "", "회사 / 담당자:", "회신받을 연락처:"],
+            "topic_line": "문의 주제:",
+            "after": ["검사 대상 또는 설비:", "궁금한 점:", "", "※ 아는 범위에서 편하게 작성해 주세요.",
+                      "※ 처음에는 공개 가능한 내용만 보내주셔도 됩니다."],
+            "copied": "이메일 주소를 복사했습니다.",
+            "copy_failed": "복사하지 못했습니다. 이메일 주소를 직접 선택해 복사해 주세요.",
         },
     },
     "en": {
@@ -77,12 +84,19 @@ STRINGS = {
         "nav": {"inspection": "Machine Vision", "monitoring": "Monitoring",
                 "careers": "Careers", "contact": "Contact"},
         "mail": {
-            "consult": ("[Consultation] ", ""),
-            "sample": ("[Sample Test Request] ",
-                       "What to inspect (product/material):\nDefects or dimensions to check:\nLine speed:\n"
-                       "Number of samples / shipping date:\nCompany / name / phone:\n"),
-            "pilot": ("[Pilot Collaboration] ", ""),
             "job": ("[Job Application] ", ""),
+        },
+        "contact": {
+            "prefix": "[EVOLVIX Inquiry]", "general": "General inquiry",
+            "topics": {"inspection": "Machine vision inspection", "monitoring": "Process monitoring · RMS-ON", "other": "Other · Partnership"},
+            "intents": {"sample": "Sample test", "consult": "Consultation", "pilot": "Pilot"},
+            "before": ["Hello, I'd like to ask about the following.", "", "Company / contact person:", "How to reach me:"],
+            "topic_line": "Topic:",
+            "after": ["What to inspect or which equipment:", "Questions:", "",
+                      "* Please share whatever you know; it doesn't need to be complete.",
+                      "* To start, information you can share publicly is enough."],
+            "copied": "Email address copied.",
+            "copy_failed": "Couldn't copy. Please select the email address and copy it yourself.",
         },
     },
 }
@@ -186,6 +200,18 @@ def asset_version(rel: str) -> str:
     return hashlib.sha256((SRC / "assets" / rel).read_bytes()).hexdigest()[:10]
 
 
+def contact_mailto(lang: str) -> str:
+    """No-JS fallback for the contact composer: general subject + blank template."""
+    c = STRINGS[lang]["contact"]
+    body = "\n".join(c["before"] + [c["topic_line"]] + c["after"]) + "\n"
+    return mailto(f'{c["prefix"]} {c["general"]}', body)
+
+
+def contact_config(lang: str) -> str:
+    data = json.dumps(STRINGS[lang]["contact"], ensure_ascii=False).replace("</", "<\\/")
+    return f'<script type="application/json" id="ct-config">{data}</script>'
+
+
 def mailto(subject: str, body: str = "") -> str:
     """mailto: URL (HTML-attribute escaped) with a pre-filled subject and optional body."""
     query = "subject=" + quote(subject)
@@ -220,7 +246,9 @@ def expand_tokens(body: str, page: Page, root: str) -> str:
                 raise BuildError(f"{page.lang}/{page.page_id}: unknown icon '{arg}'")
             return _SVG.format(ICONS[arg])
         values = {"root": root, "base": base, "email": EMAIL, **SNIPPETS,
-                  **{f"mail_{k}": mailto(*v) for k, v in STRINGS[page.lang]["mail"].items()}}
+                  **{f"mail_{k}": mailto(*v) for k, v in STRINGS[page.lang]["mail"].items()},
+                  "mail_general": contact_mailto(page.lang),
+                  "contact_config": contact_config(page.lang)}
         if arg is not None or name not in values:
             raise BuildError(f"{page.lang}/{page.page_id}: unknown token '{m.group(0)}'")
         return values[name]

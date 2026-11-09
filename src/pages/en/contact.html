@@ -1,51 +1,54 @@
 <!--
 title: Contact
-description: For consultations, sample test requests and pilot collaboration, email Evolvix at evolvix@evolvix.co.kr.
+description: Tell Evolvix what you want to inspect or the problem you want to solve. It's fine if the specifications aren't decided yet.
 -->
-    <section class="page-hero" aria-labelledby="page-title">
-      <div class="container hero-inner">
-        <p class="eyebrow">Contact</p>
-        <h1 id="page-title" class="page-title">Tell us about<br><span class="text-gradient">your process.</span></h1>
-        <p class="hero-desc">Pick a topic to open an email. We'll review it and get back to you.</p>
-      </div>
-      {{waves}}
-    </section>
+    <div class="ct">
+      <section class="wrap ct-main" aria-labelledby="ct-title">
+        <div class="ct-intro">
+          <p class="ct-kicker">Contact</p>
+          <h1 id="ct-title" class="ct-display">Not sure where to start? <br>Let's talk it through.</h1>
+          <p class="ct-lead">Tell us what you want to inspect or the problem you want to solve. <br>It's fine if the specifications aren't decided yet.</p>
+        </div>
 
-    <section class="section" aria-label="How to reach us">
-      <div class="container bento">
-        <div class="tile span-4">
-          {{icon:box}}
-          <h2 class="tile-title">Consultation</h2>
-          <p class="tile-text">Considering machine vision inspection or RMS-ON? Tell us about your process and what you're trying to solve.</p>
-          <div class="btn-row tile-foot">
-            <a class="btn btn--primary" href="{{mail_consult}}">Email us</a>
+        <form class="ct-form" id="ct-form" action="mailto:{{email}}" method="get" novalidate>
+          <fieldset class="ct-topics">
+            <legend class="ct-h2">What would you like to talk about?</legend>
+            <div class="ct-options">
+              <label class="ct-option"><input type="radio" name="topic" value="inspection"><span>Machine vision inspection</span></label>
+              <label class="ct-option"><input type="radio" name="topic" value="monitoring"><span>Process monitoring · RMS-ON</span></label>
+              <label class="ct-option"><input type="radio" name="topic" value="other"><span>Other · Partnership</span></label>
+            </div>
+            <p class="ct-help">Choose the closest topic. <br>If you're not sure yet, <span class="ct-nw">Other · Partnership</span> is fine.</p>
+          </fieldset>
+
+          <div class="ct-action">
+            <a class="ct-btn" id="ct-compose" href="{{mail_general}}">Write an inquiry email</a>
+            <p class="ct-help">Your mail app will open.</p>
+            <p class="ct-subject" id="ct-subject" hidden>Subject <span></span></p>
           </div>
-        </div>
-        <div class="tile span-4">
-          {{icon:flask}}
-          <h2 class="tile-title">Sample test request</h2>
-          <p class="tile-text">Have samples to inspect? We'll check first whether the defects can be detected. The email includes a short form.</p>
-          <div class="btn-row tile-foot">
-            <a class="btn btn--primary" href="{{mail_sample}}">Request a sample test</a>
+
+          <div class="ct-direct">
+            <a class="ct-email" id="ct-email" href="mailto:{{email}}">{{email}}</a>
+            <button class="ct-copy" id="ct-copy" type="button" hidden>Copy email address</button>
+            <p class="ct-status" id="ct-status" role="status" aria-live="polite"></p>
           </div>
+        </form>
+      </section>
+
+      <section class="wrap ct-notes" aria-labelledby="ct-notes-title">
+        <h2 id="ct-notes-title" class="ct-h3">Share as much of this as you know.</h2>
+        <div>
+          <p class="ct-items">Company and contact person <i>/</i> How to reach you <i>/</i> What to inspect or which equipment <i>/</i> Your questions</p>
+          <p class="ct-help">To start, a description you can share publicly is enough. <br>We'll explain how to send detailed material and samples after we talk.</p>
         </div>
-        <div class="tile span-4">
-          {{icon:factory}}
-          <h2 class="tile-title">Pilot collaboration</h2>
-          <p class="tile-text">Propose a pilot: we install on part of your line and review the results together.</p>
-          <div class="btn-row tile-foot">
-            <a class="btn btn--primary" href="{{mail_pilot}}">Ask about a pilot</a>
-          </div>
+      </section>
+
+      <section class="wrap ct-visit" aria-labelledby="ct-visit-title">
+        <h2 id="ct-visit-title" class="ct-h3">Visit us</h2>
+        <div>
+          <p class="ct-address">Room 1906, Building A, GIDC <br>43 Iljik-ro, Gwangmyeong-si, Gyeonggi-do, Republic of Korea</p>
+          <a class="ct-map" href="https://www.google.com/maps/search/?api=1&amp;query=%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EA%B4%91%EB%AA%85%EC%8B%9C%20%EC%9D%BC%EC%A7%81%EB%A1%9C%2043%20GIDC" target="_blank" rel="noopener noreferrer">View on the map</a>
         </div>
-        <div class="tile tile--ink span-8">
-          {{wave_lines}}
-          <span class="tile-label">Address</span>
-          <p class="tile-title">Room 1906, Building A, GIDC,<br>43 Iljik-ro, Gwangmyeong-si, Gyeonggi-do, Republic of Korea</p>
-          <a class="more tile-foot" href="https://www.google.com/maps/search/?api=1&amp;query=%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EA%B4%91%EB%AA%85%EC%8B%9C%20%EC%9D%BC%EC%A7%81%EB%A1%9C%2043%20GIDC" target="_blank" rel="noopener noreferrer">View on Google Maps ↗</a>
-        </div>
-        <div class="tile span-4">
-          <span class="tile-label">Email</span>
-          <p class="tile-title"><a href="mailto:{{email}}">{{email}}</a></p>
-        </div>
-      </div>
-    </section>
+      </section>
+      {{contact_config}}
+    </div>
