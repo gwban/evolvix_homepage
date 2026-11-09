@@ -12,6 +12,7 @@ Usage:
 """
 from __future__ import annotations
 
+import hashlib
 import re
 import shutil
 import sys
@@ -175,6 +176,12 @@ def href(from_path: str, to_path: str) -> str:
     return rel_root(from_path) + to_path
 
 
+def asset_version(rel: str) -> str:
+    """Short content hash of a file in src/assets, appended as ?v= so browsers never mix
+    a new page with a cached old stylesheet or script after a deploy."""
+    return hashlib.sha256((SRC / "assets" / rel).read_bytes()).hexdigest()[:10]
+
+
 def mailto(subject: str, body: str = "") -> str:
     """mailto: URL (HTML-attribute escaped) with a pre-filled subject and optional body."""
     query = "subject=" + quote(subject)
@@ -259,8 +266,9 @@ def render(layout: Template, page: Page, *, absolute: bool = False) -> str:
         nav=nav,
         lang_switch=lang_switch,
         content=expand_tokens(page.body, page, root),
-        scripts="\n".join(f'  <script src="{root}assets/js/{name}" defer></script>'
+        scripts="\n".join(f'  <script src="{root}assets/js/{name}?v={asset_version("js/" + name)}" defer></script>'
                            for name in PAGE_SCRIPTS.get(page.page_id, ())),
+        css_version=asset_version("css/style.css"),
         email=EMAIL,
         year=date.today().year,
         **{k: s[k] for k in ("skip", "home_label", "nav_label", "footer_nav_label",
