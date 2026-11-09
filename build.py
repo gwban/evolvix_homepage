@@ -32,7 +32,7 @@ EMAIL = "evolvix@evolvix.co.kr"
 LANGS = ("ko", "en")                      # first entry is the default language (served at /)
 PAGE_IDS = ("index", "inspection", "monitoring", "product", "about", "careers", "contact")
 NAV_IDS = ("inspection", "monitoring", "product", "about", "careers", "contact")
-PAGE_SCRIPTS = {"index": ("home.js",)}    # page id → scripts in src/assets/js (deferred)
+PAGE_SCRIPTS = {"index": ("story.js",), "inspection": ("story.js",)}   # page id → scripts in src/assets/js (deferred)
 
 STRINGS = {
     "ko": {

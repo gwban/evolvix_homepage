@@ -1,90 +1,145 @@
 <!--
 title: Machine Vision Inspection
-description: Evolvix machine vision inspection — defect inspection for white spots, white lines, foreign particles, stains, scratches, wrinkles and dents, plus external dimension, machined dimension and tolerance checks.
+description: Evolvix machine vision inspection — defect inspection for white spots, white lines, foreign particles, stains, scratches, wrinkles and dents, plus external dimension, machined dimension and tolerance checks, configured for your product and line.
 -->
-    <section class="page-hero" aria-labelledby="page-title">
-      <div class="container hero-inner">
-        <p class="eyebrow">Machine vision inspection</p>
-        <h1 id="page-title" class="page-title">The defects eyes miss,<br><span class="text-gradient">found by camera.</span></h1>
-        <p class="hero-desc">We set up lighting, cameras and inspection algorithms to fit your product and your line.</p>
-      </div>
-      {{waves}}
-    </section>
+    <div class="ins">
+      <section class="ins-intro" aria-labelledby="ins-title">
+        <div class="wrap ins-intro-head">
+          <div data-reveal>
+            <p class="ins-kicker">MACHINE VISION</p>
+            <h1 id="ins-title" class="ins-display">The defects eyes miss,<br>turned into data you can measure.</h1>
+          </div>
+          <p class="ins-side" data-reveal style="--d:0.1s">We configure lighting, cameras and inspection algorithms <br>for your product and line conditions.</p>
+        </div>
+        <figure class="ins-hero" data-reveal style="--d:0.2s">
+          <div class="ins-hero-frame">
+            <img src="{{root}}assets/img/inspection/inspection-hero-1672.webp"
+                 srcset="{{root}}assets/img/inspection/inspection-hero-1000.webp 1000w, {{root}}assets/img/inspection/inspection-hero-1672.webp 1672w"
+                 sizes="100vw" width="1672" height="941"
+                 alt="Transparent film running over precision rollers, with an industrial camera and line light mounted above">
+          </div>
+          <figcaption class="wrap ins-caption">Example inspection setup · Concept image</figcaption>
+        </figure>
+      </section>
 
-    <section class="section" aria-label="What we inspect">
-      <div class="container bento">
-        <div class="tile span-7">
-          {{icon:search}}
-          <span class="tile-label">Defect inspection</span>
-          <h2 class="tile-title">Find small surface defects<br>and sort them by type.</h2>
-          <div class="chips">
-            <span class="chip">White spots</span><span class="chip">White lines</span><span class="chip">Foreign particles</span><span class="chip">Stains</span>
-            <span class="chip">Scratches</span><span class="chip">Wrinkles</span><span class="chip">Dents</span>
+      <section class="ins-defect" data-story data-step-selector=".ins-ind li" data-steps-decorative aria-labelledby="defect-title">
+        <div class="wrap ins-defect-pin">
+          <div class="ins-head">
+            <p class="ins-kicker">01 / Defect inspection</p>
+            <h2 id="defect-title" class="ins-h2">Down to the position and shape of small defects.</h2>
           </div>
-          <p class="tile-text">The position and size of every defect is recorded, so you can also trace which process step caused it.</p>
-        </div>
-        <div class="tile span-5">
-          {{icon:ruler}}
-          <span class="tile-label">Dimensional inspection</span>
-          <h2 class="tile-title">Dimensions once measured by hand,<br>now measured by camera.</h2>
-          <div class="chips">
-            <span class="chip">External dimensions</span><span class="chip">Machined dimensions</span><span class="chip">Tolerance checks</span>
-          </div>
-          <p class="tile-text">Every part is measured the same way, and anything out of tolerance is flagged right away.</p>
-        </div>
-
-        <div class="tile tile--ink span-12">
-          {{wave_lines}}
-          <span class="tile-label">How the system is built</span>
-          <h2 class="tile-title tile-title--xl">Configured from scratch<br>for what you inspect.</h2>
-          <div class="system-flow" role="img" aria-label="Lighting design, camera and lens selection, inspection algorithm, then judgment and data logging">
-            <span class="node">Lighting design</span>
-            <span class="link">→</span>
-            <span class="node">Camera · lens selection</span>
-            <span class="link">→</span>
-            <span class="node">Inspection algorithm</span>
-            <span class="link">→</span>
-            <span class="node">Judgment · data logging</span>
-          </div>
-          <p class="tile-text">The same scratch looks different depending on the material and line speed, so we don't force a fixed setup onto your line.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="process-title">
-      <div class="container">
-        <div class="section-head">
-          <h2 id="process-title" class="section-title">It starts with a sample test</h2>
-        </div>
-        <div class="bento">
-          <div class="tile span-3">
-            <span class="tile-num">01</span>
-            <h3 class="tile-title">Sample test</h3>
-            <p class="tile-text">Send us samples and we check whether the defects can be detected.</p>
-          </div>
-          <div class="tile span-3">
-            <span class="tile-num">02</span>
-            <h3 class="tile-title">Site visit</h3>
-            <p class="tile-text">We look at line speed, installation space and lighting in person.</p>
-          </div>
-          <div class="tile span-3">
-            <span class="tile-num">03</span>
-            <h3 class="tile-title">Pilot</h3>
-            <p class="tile-text">We install on part of the line and review real results with you.</p>
-          </div>
-          <div class="tile span-3">
-            <span class="tile-num">04</span>
-            <h3 class="tile-title">Rollout and support</h3>
-            <p class="tile-text">After rollout, we keep tuning inspection criteria and models.</p>
-          </div>
-          <div class="tile tile--accent span-12">
-            {{wave_lines}}
-            <h3 class="tile-title tile-title--xl">Have samples to inspect?<br>Send them first.</h3>
-            <p class="tile-text">Just fill in what you inspect and which defects you're looking for in the email form.</p>
-            <div class="btn-row tile-foot">
-              <a class="btn btn--light" href="{{mail_sample}}">Request a sample test</a>
+          <div class="ins-defect-row">
+            <figure class="ins-defect-fig">
+              <div class="ins-defect-frame">
+                <img src="{{root}}assets/img/inspection/inspection-defect-1536.webp"
+                     srcset="{{root}}assets/img/inspection/inspection-defect-1000.webp 1000w, {{root}}assets/img/inspection/inspection-defect-1536.webp 1536w"
+                     sizes="(min-width: 1024px) 65vw, 100vw" width="1536" height="1024" loading="lazy"
+                     alt="Close-up of a thin scratch on the surface of a flat transparent film">
+                <span class="ins-box" aria-hidden="true"></span>
+                <svg class="ins-link" viewBox="0 0 150 100" preserveAspectRatio="none" aria-hidden="true">
+                  <line x1="67.35" y1="43.97" x2="57" y2="6"/><line x1="67.35" y1="58.85" x2="57" y2="50"/>
+                </svg>
+                <div class="ins-zoom" aria-hidden="true">
+                  <img src="{{root}}assets/img/inspection/inspection-defect-1536.webp" width="1536" height="1024" loading="lazy" alt="">
+                </div>
+              </div>
+              <figcaption class="ins-caption">Image for explaining the inspection principle</figcaption>
+              <ol class="ins-ind" aria-label="Inspection steps">
+                <li>Original</li>
+                <li>Defect location</li>
+                <li>Close-up</li>
+              </ol>
+            </figure>
+            <div class="ins-defect-copy">
+              <h3 class="ins-h3">Find small surface defects<br>and sort them by type.</h3>
+              <p class="ins-body">The position and size of every defect is logged, <br>so you can find and trace where it occurred.</p>
+              <p class="ins-types">White spots · White lines · Particles · Stains<br>Scratches · Wrinkles · Dents</p>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section class="ins-dim" aria-labelledby="dim-title">
+        <div class="wrap ins-dim-row">
+          <div class="ins-dim-copy" data-reveal>
+            <p class="ins-kicker">02 / Dimensional inspection</p>
+            <h2 id="dim-title" class="ins-h2">Dimensions once measured by hand,<br>now measured by camera.</h2>
+            <p class="ins-body">Every part is measured the same way, <br>and parts outside the set tolerance are separated.</p>
+            <p class="ins-items">External dimensions / Machined dimensions / Tolerance checks</p>
+          </div>
+          <figure class="ins-dim-fig" data-reveal style="--d:0.15s">
+            <div class="ins-dim-frame">
+              <img src="{{root}}assets/img/inspection/inspection-dimension-1536.webp"
+                   srcset="{{root}}assets/img/inspection/inspection-dimension-1000.webp 1000w, {{root}}assets/img/inspection/inspection-dimension-1536.webp 1536w"
+                   sizes="(min-width: 1024px) 58vw, 100vw" width="1536" height="1024" loading="lazy"
+                   alt="Rectangular specimen on a backlit inspection jig, photographed from directly above">
+              <svg class="ins-measure" viewBox="0 0 1536 1024" aria-hidden="true">
+                <defs>
+                  <marker id="ins-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                    <path d="M0 0L10 5L0 10z"/>
+                  </marker>
+                </defs>
+                <line class="m-ext" x1="329" y1="290" x2="329" y2="226"/><line class="m-ext" x1="1095" y1="290" x2="1095" y2="226"/>
+                <line class="m-ext" x1="1095" y1="290" x2="1172" y2="290"/><line class="m-ext" x1="1095" y1="755" x2="1172" y2="755"/>
+                <line class="m-line" x1="333" y1="246" x2="1091" y2="246" marker-start="url(#ins-arrow)" marker-end="url(#ins-arrow)"/>
+                <line class="m-line" x1="1152" y1="294" x2="1152" y2="751" marker-start="url(#ins-arrow)" marker-end="url(#ins-arrow)"/>
+                <text class="m-label" x="712" y="222" text-anchor="middle">W</text>
+                <text class="m-label" x="1196" y="534">H</text>
+              </svg>
+            </div>
+            <figcaption class="ins-caption">Explaining dimensional measurement · Concept image</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="ins-sys" aria-labelledby="sys-title">
+        <div class="wrap">
+          <div class="ins-sys-head" data-reveal>
+            <div>
+              <p class="ins-kicker">03 / Inspection system setup</p>
+              <h2 id="sys-title" class="ins-h2">Configured from scratch<br>for what you inspect.</h2>
+            </div>
+            <p class="ins-body">We find the inspection conditions that suit your material and line speed.</p>
+          </div>
+          <div class="ins-sys-row">
+            <figure class="ins-sys-fig" data-reveal>
+              <div class="ins-sys-frame">
+                <img src="{{root}}assets/img/inspection/inspection-optics-1448.webp"
+                     srcset="{{root}}assets/img/inspection/inspection-optics-800.webp 800w, {{root}}assets/img/inspection/inspection-optics-1448.webp 1448w"
+                     sizes="(min-width: 1024px) 50vw, 100vw" width="1448" height="1086" loading="lazy"
+                     alt="Optical setup with an industrial camera and lens looking down at a glass inspection jig on a backlight">
+              </div>
+              <figcaption class="ins-caption">Example optical setup · Concept image</figcaption>
+            </figure>
+            <ol class="ins-sys-list" data-reveal style="--d:0.12s">
+              <li><b>01</b><div><strong>Lighting design</strong><span>We design the lighting method and layout for the material and the inspection goal.</span></div></li>
+              <li><b>02</b><div><strong>Camera and lens selection</strong><span>We choose cameras and lenses that match the required resolution and speed.</span></div></li>
+              <li><b>03</b><div><strong>Inspection algorithms</strong><span>We apply algorithms for the task: defect detection, dimensional measurement, classification.</span></div></li>
+              <li><b>04</b><div><strong>Judgment and data logging</strong><span>Results are judged and logged so the history can be reviewed.</span></div></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="ins-process" aria-labelledby="process-title">
+        <div class="wrap">
+          <h2 id="process-title" class="ins-h2" data-reveal>It starts with a sample test.</h2>
+          <ol class="ins-steps" data-reveal style="--d:0.1s">
+            <li><b>01</b><strong>Sample test</strong><span>We first check with samples whether the defects can be detected.</span></li>
+            <li><b>02</b><strong>Site visit</strong><span>We check line speed, installation space and lighting conditions.</span></li>
+            <li><b>03</b><strong>Pilot</strong><span>We install on part of the line and review real inspection results with you.</span></li>
+            <li><b>04</b><strong>Rollout and support</strong><span>After rollout, we keep adjusting inspection criteria and models.</span></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="ins-cta" aria-labelledby="cta-title">
+        <div class="wrap ins-cta-row">
+          <div>
+            <h2 id="cta-title" class="ins-h2">Have samples to inspect?<br>Talk to us first.</h2>
+            <p class="ins-body">Tell us what you inspect and which defects you're looking for.</p>
+          </div>
+          <a class="ins-btn" href="{{mail_sample}}">Request a sample test</a>
+        </div>
+      </section>
+    </div>

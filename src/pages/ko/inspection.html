@@ -2,89 +2,144 @@
 title: 머신비전 검사
 description: 이볼빅스 머신비전 검사. 백점, 백선, 이물, 얼룩, 스크래치, 주름, 찍힘 등 결함 검사와 외관 치수, 가공 치수, 공차 검사를 제품과 라인 조건에 맞춰 구성합니다.
 -->
-    <section class="page-hero" aria-labelledby="page-title">
-      <div class="container hero-inner">
-        <p class="eyebrow">머신비전 검사</p>
-        <h1 id="page-title" class="page-title">눈으로 놓치던 결함을<br><span class="text-gradient">카메라로 찾습니다.</span></h1>
-        <p class="hero-desc">조명과 카메라, 검사 알고리즘을 제품과 라인 조건에 맞춰 구성합니다.</p>
-      </div>
-      {{waves}}
-    </section>
+    <div class="ins">
+      <section class="ins-intro" aria-labelledby="ins-title">
+        <div class="wrap ins-intro-head">
+          <div data-reveal>
+            <p class="ins-kicker">MACHINE VISION / 머신비전 검사</p>
+            <h1 id="ins-title" class="ins-display">눈으로 놓치던 결함을,<br>측정 가능한 정보로.</h1>
+          </div>
+          <p class="ins-side" data-reveal style="--d:0.1s">조명과 카메라, 검사 알고리즘을 <br>제품과 라인 조건에 맞춰 구성합니다.</p>
+        </div>
+        <figure class="ins-hero" data-reveal style="--d:0.2s">
+          <div class="ins-hero-frame">
+            <img src="{{root}}assets/img/inspection/inspection-hero-1672.webp"
+                 srcset="{{root}}assets/img/inspection/inspection-hero-1000.webp 1000w, {{root}}assets/img/inspection/inspection-hero-1672.webp 1672w"
+                 sizes="100vw" width="1672" height="941"
+                 alt="투명 필름이 정밀 롤러 위를 지나고, 위쪽에 산업용 카메라와 라인 조명이 설치된 검사 장면">
+          </div>
+          <figcaption class="wrap ins-caption">검사 시스템 구성 예시 · 컨셉 이미지</figcaption>
+        </figure>
+      </section>
 
-    <section class="section" aria-label="검사 항목">
-      <div class="container bento">
-        <div class="tile span-7">
-          {{icon:search}}
-          <span class="tile-label">결함 검사</span>
-          <h2 class="tile-title">표면에 생긴 작은 결함을 찾고,<br>종류별로 나눕니다.</h2>
-          <div class="chips">
-            <span class="chip">백점</span><span class="chip">백선</span><span class="chip">이물</span><span class="chip">얼룩</span>
-            <span class="chip">스크래치</span><span class="chip">주름</span><span class="chip">찍힘</span>
+      <section class="ins-defect" data-story data-step-selector=".ins-ind li" data-steps-decorative aria-labelledby="defect-title">
+        <div class="wrap ins-defect-pin">
+          <div class="ins-head">
+            <p class="ins-kicker">01 / 결함 검사</p>
+            <h2 id="defect-title" class="ins-h2">작은 결함의 위치와 형태까지.</h2>
           </div>
-          <p class="tile-text">결함마다 위치와 크기를 기록해 두기 때문에, 어느 공정에서 생겼는지 추적할 때도 쓸 수 있습니다.</p>
-        </div>
-        <div class="tile span-5">
-          {{icon:ruler}}
-          <span class="tile-label">치수 검사</span>
-          <h2 class="tile-title">사람이 재던 치수를<br>카메라로 측정합니다.</h2>
-          <div class="chips">
-            <span class="chip">외관 치수</span><span class="chip">가공 치수</span><span class="chip">공차 검사</span>
-          </div>
-          <p class="tile-text">같은 기준으로 매번 측정하고, 공차를 벗어난 제품을 바로 걸러냅니다.</p>
-        </div>
-
-        <div class="tile tile--ink span-12">
-          {{wave_lines}}
-          <span class="tile-label">검사 시스템 구성</span>
-          <h2 class="tile-title tile-title--xl">검사 대상에 맞춰<br>처음부터 구성합니다.</h2>
-          <div class="system-flow" role="img" aria-label="조명 설계, 카메라와 렌즈 선정, 검사 알고리즘, 판정과 데이터 기록 순서로 구성">
-            <span class="node">조명 설계</span>
-            <span class="link">→</span>
-            <span class="node">카메라 · 렌즈 선정</span>
-            <span class="link">→</span>
-            <span class="node">검사 알고리즘</span>
-            <span class="link">→</span>
-            <span class="node">판정 · 데이터 기록</span>
-          </div>
-          <p class="tile-text">같은 스크래치라도 소재와 라인 속도에 따라 보이는 방식이 다릅니다. 그래서 장비를 정해 놓고 끼워 맞추지 않습니다.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="process-title">
-      <div class="container">
-        <div class="section-head">
-          <h2 id="process-title" class="section-title">샘플 테스트부터 시작합니다</h2>
-        </div>
-        <div class="bento">
-          <div class="tile span-3">
-            <span class="tile-num">01</span>
-            <h3 class="tile-title">샘플 테스트</h3>
-            <p class="tile-text">샘플을 보내 주시면 결함이 검출되는지 먼저 확인합니다.</p>
-          </div>
-          <div class="tile span-3">
-            <span class="tile-num">02</span>
-            <h3 class="tile-title">현장 확인</h3>
-            <p class="tile-text">라인 속도와 설치 공간, 조명 조건을 직접 봅니다.</p>
-          </div>
-          <div class="tile span-3">
-            <span class="tile-num">03</span>
-            <h3 class="tile-title">파일럿</h3>
-            <p class="tile-text">라인 일부에 설치해 실제 결과를 함께 확인합니다.</p>
-          </div>
-          <div class="tile span-3">
-            <span class="tile-num">04</span>
-            <h3 class="tile-title">적용과 운영</h3>
-            <p class="tile-text">적용한 뒤에도 검사 기준과 모델을 계속 맞춰 갑니다.</p>
-          </div>
-          <div class="tile tile--accent span-12">
-            {{wave_lines}}
-            <h3 class="tile-title tile-title--xl">검사할 샘플이 있다면,<br>먼저 보내 주세요.</h3>
-            <p class="tile-text">메일 양식에 검사 대상과 찾으려는 결함을 적어 주시면 됩니다.</p>
-            <div class="btn-row tile-foot">
-              <a class="btn btn--light" href="{{mail_sample}}">샘플 테스트 의뢰</a>
+          <div class="ins-defect-row">
+            <figure class="ins-defect-fig">
+              <div class="ins-defect-frame">
+                <img src="{{root}}assets/img/inspection/inspection-defect-1536.webp"
+                     srcset="{{root}}assets/img/inspection/inspection-defect-1000.webp 1000w, {{root}}assets/img/inspection/inspection-defect-1536.webp 1536w"
+                     sizes="(min-width: 1024px) 65vw, 100vw" width="1536" height="1024" loading="lazy"
+                     alt="평평한 투명 필름 표면의 가는 스크래치를 확대해 촬영한 이미지">
+                <span class="ins-box" aria-hidden="true"></span>
+                <svg class="ins-link" viewBox="0 0 150 100" preserveAspectRatio="none" aria-hidden="true">
+                  <line x1="67.35" y1="43.97" x2="57" y2="6"/><line x1="67.35" y1="58.85" x2="57" y2="50"/>
+                </svg>
+                <div class="ins-zoom" aria-hidden="true">
+                  <img src="{{root}}assets/img/inspection/inspection-defect-1536.webp" width="1536" height="1024" loading="lazy" alt="">
+                </div>
+              </div>
+              <figcaption class="ins-caption">검사 원리 설명용 이미지</figcaption>
+              <ol class="ins-ind" aria-label="검사 단계">
+                <li>원본 확인</li>
+                <li>결함 위치</li>
+                <li>확대 확인</li>
+              </ol>
+            </figure>
+            <div class="ins-defect-copy">
+              <h3 class="ins-h3">표면에 생긴 작은 결함을 찾고,<br>종류별로 나눕니다.</h3>
+              <p class="ins-body">결함마다 위치와 크기를 기록해 <br>발생 위치를 확인하고 추적합니다.</p>
+              <p class="ins-types">백점 · 백선 · 이물 · 얼룩<br>스크래치 · 주름 · 찍힘</p>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section class="ins-dim" aria-labelledby="dim-title">
+        <div class="wrap ins-dim-row">
+          <div class="ins-dim-copy" data-reveal>
+            <p class="ins-kicker">02 / 치수 검사</p>
+            <h2 id="dim-title" class="ins-h2">사람이 재던 치수를,<br>카메라로 측정합니다.</h2>
+            <p class="ins-body">같은 기준으로 측정하고, <br>설정한 공차를 벗어난 제품을 구분합니다.</p>
+            <p class="ins-items">외관 치수 / 가공 치수 / 공차 검사</p>
+          </div>
+          <figure class="ins-dim-fig" data-reveal style="--d:0.15s">
+            <div class="ins-dim-frame">
+              <img src="{{root}}assets/img/inspection/inspection-dimension-1536.webp"
+                   srcset="{{root}}assets/img/inspection/inspection-dimension-1000.webp 1000w, {{root}}assets/img/inspection/inspection-dimension-1536.webp 1536w"
+                   sizes="(min-width: 1024px) 58vw, 100vw" width="1536" height="1024" loading="lazy"
+                   alt="백라이트 검사 지그 위에 놓인 직사각형 시편을 수직 위에서 촬영한 이미지">
+              <svg class="ins-measure" viewBox="0 0 1536 1024" aria-hidden="true">
+                <defs>
+                  <marker id="ins-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                    <path d="M0 0L10 5L0 10z"/>
+                  </marker>
+                </defs>
+                <line class="m-ext" x1="329" y1="290" x2="329" y2="226"/><line class="m-ext" x1="1095" y1="290" x2="1095" y2="226"/>
+                <line class="m-ext" x1="1095" y1="290" x2="1172" y2="290"/><line class="m-ext" x1="1095" y1="755" x2="1172" y2="755"/>
+                <line class="m-line" x1="333" y1="246" x2="1091" y2="246" marker-start="url(#ins-arrow)" marker-end="url(#ins-arrow)"/>
+                <line class="m-line" x1="1152" y1="294" x2="1152" y2="751" marker-start="url(#ins-arrow)" marker-end="url(#ins-arrow)"/>
+                <text class="m-label" x="712" y="222" text-anchor="middle">W</text>
+                <text class="m-label" x="1196" y="534">H</text>
+              </svg>
+            </div>
+            <figcaption class="ins-caption">치수 측정 원리 설명용 · 컨셉 이미지</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="ins-sys" aria-labelledby="sys-title">
+        <div class="wrap">
+          <div class="ins-sys-head" data-reveal>
+            <div>
+              <p class="ins-kicker">03 / 검사 시스템 구성</p>
+              <h2 id="sys-title" class="ins-h2">검사 대상에 맞춰,<br>처음부터 구성합니다.</h2>
+            </div>
+            <p class="ins-body">소재와 라인 속도에 맞는 검사 조건을 찾습니다.</p>
+          </div>
+          <div class="ins-sys-row">
+            <figure class="ins-sys-fig" data-reveal>
+              <div class="ins-sys-frame">
+                <img src="{{root}}assets/img/inspection/inspection-optics-1448.webp"
+                     srcset="{{root}}assets/img/inspection/inspection-optics-800.webp 800w, {{root}}assets/img/inspection/inspection-optics-1448.webp 1448w"
+                     sizes="(min-width: 1024px) 50vw, 100vw" width="1448" height="1086" loading="lazy"
+                     alt="산업용 카메라와 렌즈가 백라이트 위 유리 검사 지그를 내려다보는 광학 구성">
+              </div>
+              <figcaption class="ins-caption">광학 구성 예시 · 컨셉 이미지</figcaption>
+            </figure>
+            <ol class="ins-sys-list" data-reveal style="--d:0.12s">
+              <li><b>01</b><div><strong>조명 설계</strong><span>소재의 특성과 검사 목적에 맞는 조명 방식과 배치를 설계합니다.</span></div></li>
+              <li><b>02</b><div><strong>카메라·렌즈 선정</strong><span>검사 해상도와 속도에 맞는 카메라와 렌즈를 선정합니다.</span></div></li>
+              <li><b>03</b><div><strong>검사 알고리즘</strong><span>결함 검출, 치수 측정, 분류 등 목적에 맞는 검사 알고리즘을 적용합니다.</span></div></li>
+              <li><b>04</b><div><strong>판정·데이터 기록</strong><span>검사 결과를 판정하고, 이력을 확인할 수 있도록 기록합니다.</span></div></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="ins-process" aria-labelledby="process-title">
+        <div class="wrap">
+          <h2 id="process-title" class="ins-h2" data-reveal>샘플 테스트부터 시작합니다.</h2>
+          <ol class="ins-steps" data-reveal style="--d:0.1s">
+            <li><b>01</b><strong>샘플 테스트</strong><span>샘플로 결함 검출 가능성을 먼저 확인합니다.</span></li>
+            <li><b>02</b><strong>현장 확인</strong><span>라인 속도와 설치 공간, 조명 조건을 확인합니다.</span></li>
+            <li><b>03</b><strong>파일럿</strong><span>라인 일부에 설치해 실제 검사 결과를 함께 확인합니다.</span></li>
+            <li><b>04</b><strong>적용과 운영</strong><span>적용 이후에도 검사 기준과 모델을 조정합니다.</span></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="ins-cta" aria-labelledby="cta-title">
+        <div class="wrap ins-cta-row">
+          <div>
+            <h2 id="cta-title" class="ins-h2">검사할 샘플이 있다면,<br>먼저 이야기해 주세요.</h2>
+            <p class="ins-body">검사 대상과 찾으려는 결함을 알려주세요.</p>
+          </div>
+          <a class="ins-btn" href="{{mail_sample}}">샘플 테스트 의뢰</a>
+        </div>
+      </section>
+    </div>

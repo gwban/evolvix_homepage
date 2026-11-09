@@ -1,9 +1,13 @@
 /*
- * Home page scroll scenes.
+ * Scroll scenes (home, machine vision page).
  * - Content is fully readable without this script (plain vertical flow).
  * - Desktop (≥1024px wide, ≥620px tall) without reduced motion: each [data-story]
- *   becomes a sticky scene whose step follows the scroll position. Scrolling back
- *   returns to earlier steps; the page scroll itself is never intercepted.
+ *   becomes a sticky scene (.is-enhanced) whose step follows the scroll position and is
+ *   exposed as data-active="<index>". Scrolling back returns to earlier steps; the page
+ *   scroll itself is never intercepted.
+ *   Options on the [data-story] element:
+ *     data-step-selector   which elements are the steps (default ".story-step")
+ *     data-steps-decorative  steps are labels only, so they are never made inert
  * - [data-reveal] elements fade in once when they enter the viewport.
  */
 (() => {
@@ -13,14 +17,16 @@
   let ticking = false;
 
   const pad = (n) => String(n).padStart(2, "0");
+  const stepsOf = (story) => story.querySelectorAll(story.dataset.stepSelector || ".story-step");
 
   function setStep(story, idx) {
     if (story.dataset.active === String(idx)) return;
     story.dataset.active = String(idx);
-    const steps = story.querySelectorAll(".story-step");
+    const steps = stepsOf(story);
+    const decorative = story.hasAttribute("data-steps-decorative");
     steps.forEach((step, i) => {
       step.dataset.state = i < idx ? "past" : i === idx ? "active" : "next";
-      step.inert = i !== idx;                       // hidden steps cannot take keyboard focus
+      if (!decorative) step.inert = i !== idx;      // hidden steps cannot take keyboard focus
     });
     const count = story.querySelector(".story-count");
     if (count) count.textContent = `${pad(idx + 1)} / ${pad(steps.length)}`;
@@ -30,7 +36,7 @@
     delete story.dataset.active;
     story.style.removeProperty("--p");
     story.style.removeProperty("--progress");
-    story.querySelectorAll(".story-step").forEach((step) => {
+    stepsOf(story).forEach((step) => {
       delete step.dataset.state;
       step.inert = false;
     });
@@ -42,7 +48,7 @@
       if (!story.classList.contains("is-enhanced")) continue;
       const range = story.offsetHeight - window.innerHeight;
       const progress = Math.min(1, Math.max(0, -story.getBoundingClientRect().top / Math.max(range, 1)));
-      const n = story.querySelectorAll(".story-step").length;
+      const n = stepsOf(story).length;
       const idx = Math.min(n - 1, Math.floor(progress * n));
       setStep(story, idx);
       story.style.setProperty("--p", (progress * n - idx).toFixed(3));
